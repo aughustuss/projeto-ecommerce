@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { createContext, useState, useEffect } from 'react'
+import axios from 'axios'
 
-const Product = () => {
+export const ProductContext = createContext();
+
+const ProductProvider = ({ children }) => {
+  const [product, setProduct] = useState([]);
+
+
+  const getProducts = async () => {
+    try {
+      const res = await axios.get('https://fakestoreapi.com/products');
+      console.log(res);
+      setProduct(res.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getProducts();
+  }, [])
+
   return (
-    <div>Product</div>
+    <>
+      <ProductContext.Provider value={{ product }}>
+        {children}
+      </ProductContext.Provider>
+    </>
   )
 }
 
-export default Product
+export default ProductProvider;
