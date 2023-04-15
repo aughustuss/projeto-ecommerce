@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 import SideBar from './components/Sidebar'
 
 const App = () => {
-  const [isTop, setIsTop] = useState(false);
+  const [isTop, setIsTop] = useState(true);
 
   useEffect(() => {
     const getScroll = () => {

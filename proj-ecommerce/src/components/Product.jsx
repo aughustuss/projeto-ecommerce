@@ -22,8 +22,8 @@ const Product = ({ product }) => {
   return (
     <>
       <div>
-        <div className='h-80 mb-4 relative overflow-hidden group flex flex-col transition border border-neutral-300'>
-          <div className='w-full h-full flex justify-center items-center'>
+        <div className='h-80 mb-4 relative overflow-hidden group flex flex-col transition bg-white shadow-md shadow-neutral-200'>
+          <div className='border border-neutral-100 w-full h-full flex justify-center items-center'>
             <div className='w-48 mx-auto flex justify-center items-center'>
               <img
                 className=' max-h-44 group-hover:scale-105 transition duration-300'

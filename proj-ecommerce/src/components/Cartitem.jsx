@@ -18,8 +18,8 @@ const ColorButton = styled(Button)(({theme})=>({
 
 const Cartitem = ({ item }) => {
 
-  const { id, title, price, category, image, amount } = item;
-  const {removeFromCart} = useContext(CartContext);
+  const { id, title, price, image, amount } = item;
+  const {removeFromCart, increase, decrease} = useContext(CartContext);
 
   return (
     <>
@@ -37,9 +37,9 @@ const Cartitem = ({ item }) => {
               </div>
               <div className='text-xs flex w-full justify-between items-center '>
                 <div className='flex w-fit gap-x-3 items-center border border-neutral-200' >
-                  <ColorButton className='w-6'>+</ColorButton>
+                  <ColorButton onClick={() => increase(id)} className='w-6'>+</ColorButton>
                   {amount}
-                  <ColorButton className='w-6'>-</ColorButton>
+                  <ColorButton onClick={() => decrease(id)} className='w-6'>-</ColorButton>
                 </div>
                 <div>{amount > 1 ? `R$${price*amount}` : `R$${price}` }</div>
               </div>
