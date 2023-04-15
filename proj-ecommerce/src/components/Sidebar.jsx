@@ -12,7 +12,7 @@ const Sidebar = () => {
   const { cart } = useContext(CartContext);
   return (
     <>
-      <div className={`${isOpen ? 'right-0' : '-right-full'} w-full shadow-current shadow-2xl bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8`}>
+      <div className={`${isOpen ? 'right-0' : '-right-full'} w-full shadow-current shadow-2xl bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8 overflow-y-scroll`}>
         <div className='flex items-center py-4 justify-between border-b border-b-neutral-200 w-full'>
           <div className='font-semibold uppercase ' >
             Carrinho de Compras ({cart.length})
