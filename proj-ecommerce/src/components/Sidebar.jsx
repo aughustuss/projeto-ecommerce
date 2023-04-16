@@ -17,30 +17,27 @@ const ColorButton = styled(Button)(({ theme }) => ({
   borderRadius: '0',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
   width: '100%',
   '&:hover': {
-    backgroundColor: 'rgb(126, 34, 206)',
-    color: 'white'
+    backgroundColor: 'rgb(88, 28, 135)'
   }
 }));
 
 const CheckoutButton = styled(Button)(({ theme }) => ({
-  color: 'white',
+  color: 'rgb(126, 34, 206)',
   backgroundColor: 'transparent',
   border: '1px solid rgb(126, 34, 206)',
-  color: 'rgb(126, 34, 206)',
   padding: '1rem',
   margin: '0',
   minWidth: '0',
   borderRadius: '0',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
   width: '100%',
   '&:hover': {
-    backgroundColor: 'transparent',
-    border: '1px solid rgb(126, 34, 206)'
+    border: '1px solid rgb(126, 34, 206)',
+    backgroundColor: 'rgb(88, 28, 135)',
+    color: 'white'
   }
 }));
 
@@ -70,15 +67,15 @@ const Sidebar = () => {
         </div>
         <div>
           <div>
-            <span>Total: R${parseFloat(totalPrice).toFixed(2)}</span>
+            <span className='font-semibold'>Total: R${parseFloat(totalPrice).toFixed(2)}</span>
           </div>
-          <Link to='/cartpage' className='cursor-pointer py-4 flex flex-row ' >
-            <ColorButton fullWidth variant='contained'>
-              <p className='uppercase text-sm'>Visualizar carrinho</p> <BsCart2 className='text-xl'/>
+          <Link to='/cartpage' className='cursor-pointer py-4 flex flex-row' >
+            <ColorButton >
+              <p className='uppercase text-sm'>Visualizar carrinho</p> <BsCart2 className='text-xl absolute right-1 lg:right-5'/>
             </ColorButton>
           </Link>
           <div>
-            <CheckoutButton variant='outlined' fullWidth>
+            <CheckoutButton fullWidth>
               Checkout
             </CheckoutButton>
           </div>

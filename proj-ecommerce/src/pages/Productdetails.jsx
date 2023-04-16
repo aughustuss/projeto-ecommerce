@@ -17,8 +17,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   justifyContent: 'space-between',
   width: '100%',
   '&:hover': {
-    backgroundColor: 'rgb(126, 34, 206)',
-    color: 'white'
+    backgroundColor: 'rgb(88, 28, 135)'
   }
 }));
 
@@ -41,11 +40,11 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='py-20 font-montserrat h-screen flex items-center bg-white' >
-        <div className='container mx-auto' >
+      <section className='py-20 font-montserrat h-screen flex items-center' >
+        <div className='container mx-auto bg-white border' >
           <div className='flex flex-col lg:flex-row items-center flex-1 justify-center'>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
-              <img className='max-w-[200px] lg:max-w-sm' src={image} alt={title} />
+              <img className='max-w-[200px] max-h-[500px] lg:max-w-sm' src={image} alt={title} />
             </div>
             <div className='flex flex-col p-2 gap-y-4'>
               <div className='flex flex-1 text-center lg:text-left'>
