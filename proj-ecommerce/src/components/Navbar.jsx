@@ -84,10 +84,10 @@ const Navbar = ({ isTop }) => {
             <div onClick={() => setListOpen(!listOpen)} className=' transition duration-300 py-2 cursor-pointer  w-full text-center relative group flex flex-row items-center justify-center'>
               <div className='flex-grow' >Categorias</div><div className=' flex-shrink-0 opacity-0 group-hover:opacity-100 transition duration-300 text-2xl self-end'> {!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp/>}</div>
               {listOpen ? (
-                <ul className={`${isTop ? 'bg-purple-400' : 'bg-purple-700'} capitalize absolute top-full w-full p-2 rounded-b-md`} >
+                <ul className={`text-black bg-neutral-100 capitalize absolute top-14 w-full p-2 rounded-b-md`} >
                   {uniqueCategories.map((item) => {
                     return (
-                      <li key={item} className={`${isTop ? 'hover:bg-purple-500' : 'hover:bg-purple-900'} flex transition duration-100 `}>
+                      <li key={item} className={`hover:text-white hover:bg-purple-600 text-sm md:text-md flex transition duration-300 `}>
                         <Link className='w-full h-full p-2 ' to={`/category/${item}`} key={item}> {item} </Link>
                       </li>
                     )

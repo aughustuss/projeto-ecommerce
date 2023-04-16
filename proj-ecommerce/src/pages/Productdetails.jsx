@@ -40,7 +40,7 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='py-20 font-montserrat h-screen flex items-center' >
+      <section className='pb-16 pt-48 font-montserrat h-screen flex items-center' >
         <div className='container mx-auto bg-white border' >
           <div className='flex flex-col lg:flex-row items-center flex-1 justify-center'>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
@@ -62,7 +62,7 @@ const ProductDetails = () => {
 
             </div>
           </div>
-          <div className='mt-4'>{description}</div>
+          <div className='mt-4 p-2'>{description}</div>
         </div>
       </section>
     </>

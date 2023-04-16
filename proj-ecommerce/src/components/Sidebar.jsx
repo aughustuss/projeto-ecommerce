@@ -58,7 +58,7 @@ const Sidebar = () => {
             <IoMdArrowForward />
           </div>
         </div>
-        <div className='flex flex-col gap-y-2 h-[520px] max-h-[600px] overflow-x-hidden overflow-auto '>
+        <div className='flex flex-col gap-y-2 h-[420px] sm:h-[520px] overflow-x-hidden overflow-auto '>
           {cart.map((item) => {
             return (
               <CartItem item={item} key={item.id} />
