@@ -97,9 +97,9 @@ const Navbar = ({ isTop }) => {
                 null
               )}
             </div>
-            <div className='cursor-pointer w-full flex py-2 justify-center  transition duration-300'>
+            <Link to='/contact' className='cursor-pointer w-full flex py-2 justify-center  transition duration-300'>
               Contato
-            </div>
+            </Link>
           </div>
         </div>
       </nav>
