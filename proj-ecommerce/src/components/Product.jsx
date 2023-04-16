@@ -21,7 +21,7 @@ const Product = ({ product }) => {
   const {addToCart} = useContext(CartContext);
   return (
     <>
-      <div>
+      <div className='w-5/6 mx-auto sm:w-full'>
         <div className='h-80 mb-4 relative overflow-hidden group flex flex-col transition bg-white shadow-md shadow-neutral-200'>
           <div className='border border-neutral-100 w-full h-full flex justify-center items-center'>
             <div className='w-48 mx-auto flex justify-center items-center'>
