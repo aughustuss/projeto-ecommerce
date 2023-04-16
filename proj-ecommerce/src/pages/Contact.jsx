@@ -59,7 +59,7 @@ const Contact = () => {
                             <div className='uppercase text-3xl font-semibold py-10 text-white bg-purple-700 w-full text-center'>
                                 Entre em contato
                             </div>
-                            <form onSubmit={onSubmit} className='flex flex-col items-center h-full w-1/2 p-2 gap-y-4 justify-between' action="">
+                            <form onSubmit={onSubmit} className='flex flex-col items-center h-full w-full md:w-1/2 py-2 gap-y-4 justify-between' action="">
                                 <div className='w-full flex flex-col gap-y-4' >
                                     <StyledTextField
                                         label='Nome'

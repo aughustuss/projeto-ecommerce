@@ -5,7 +5,7 @@ import logo from '../assets/logoAD.svg'
 const Footer = () => {
   return (
     <>
-      <footer className='bg-neutral-900 '>
+      <footer className='bg-neutral-900'>
         <div className='container mx-auto pt-12 pb-2'>
           <div className='flex flex-col justify-between h-24'>
             <div className='flex justify-between items-center' >
