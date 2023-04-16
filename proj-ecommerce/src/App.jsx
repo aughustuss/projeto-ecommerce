@@ -5,6 +5,7 @@ import ProductDetails from './pages/Productdetails'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SideBar from './components/Sidebar'
+import Cartpage from './pages/Cartpage'
 
 const App = () => {
   const [isTop, setIsTop] = useState(true);
@@ -30,7 +31,8 @@ const App = () => {
         <Navbar isTop={isTop} />
         <Routes>
           <Route path='/' index element={<Home />} />
-          <Route path='product/:id' element={<ProductDetails />} />
+          <Route path='/product/:id' element={<ProductDetails />} />
+          <Route path='/cartpage' element={<Cartpage/>} />
         </Routes>
         <SideBar />
         <Footer />

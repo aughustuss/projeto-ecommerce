@@ -22,6 +22,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   }
 }));
 
+
 const ProductDetails = () => {
 
   const { id } = useParams();
@@ -40,7 +41,7 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='py-20 font-montserrat h-screen flex items-center' >
+      <section className='py-20 font-montserrat h-screen flex items-center bg-white' >
         <div className='container mx-auto' >
           <div className='flex flex-col lg:flex-row items-center flex-1 justify-center'>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
@@ -54,10 +55,13 @@ const ProductDetails = () => {
                 R${price}
               </div>
               <p className='capitalize text-xs' >{category}</p>
-              <ColorButton onClick={() => addToCart(singleProduct, id)}>
-                  Adicionar ao carrinho <BsCart2 className='text-2xl' />
+
+              <ColorButton onClick={() => addToCart(singleProduct, singleProduct.id)}>
+                Adicionar ao carrinho <BsCart2 className='text-2xl' />
               </ColorButton>
-            </div>  
+
+
+            </div>
           </div>
           <div className='mt-4'>{description}</div>
         </div>
