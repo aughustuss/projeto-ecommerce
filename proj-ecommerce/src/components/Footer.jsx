@@ -6,11 +6,11 @@ const Footer = () => {
   return (
     <>
       <footer className='bg-neutral-900'>
-        <div className='container mx-auto pt-12 pb-2'>
-          <div className='flex flex-col justify-between h-24'>
-            <div className='flex justify-between items-center' >
-              <Link to='/' className='text-3xl font-oswald font-bold flex flex-row items-center  text-purple-700 px-2 rounded-md' >
-                AD Store
+        <div className='container mx-auto pt-12 pb-12 md:pb-2'>
+          <div className='flex flex-col justify-between h-24 gap-y-4'>
+            <div className='flex justify-between items-center flex-col md:flex-row gap-y-4' >
+              <Link to='/' className='text-3xl font-oswald font-bold   text-purple-700 px-2 rounded-md' >
+                AD Shop For You
               </Link>
               <p className='text-xs text-white'>Copyright - 2023 &copy; Todos os direitos reservados.</p>
             </div>
@@ -19,7 +19,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
       </footer>
     </>
   )
