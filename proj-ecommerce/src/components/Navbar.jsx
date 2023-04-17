@@ -33,14 +33,14 @@ const Navbar = ({ isTop }) => {
   return (
     <>
       <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
-        <div className='mx-auto w-5/6 flex justify-between items-center'>
-          <Link to='/' className='text-4xl font-oswald font-bold flex flex-col items-center gap-y-2 group' >
+        <div className='mx-auto w-5/6 flex justify-between items-center '>
+          <Link to='/' className='text-xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center md:gap-y-2' >
             AD Shop For You
-            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-xs border w-full text-center py-1 tracking-[5px]`}>E-commerce Store</span>
+            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-[8px] md:text-xs border w-full text-center md:py-2 md:tracking-[5px]`}>E-commerce Store</span>
           </Link>
           <div className='flex flex-row gap-x-4 w-2/4'>
             <div className='flex items-center w-full flex-row relative'>
-              <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className={`${!isTop ? 'bg-neutral-100' : 'bg-neutral-200'} w-full p-2 outline-none text-neutral-600`} />
+              <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className={`${!isTop ? 'bg-neutral-100' : 'bg-neutral-200'} pl-2 w-full h-full outline-none text-neutral-600`} />
               <span className='hidden md:flex md:absolute md:right-4 text-xl text-neutral-600'><HiOutlineSearch /></span>
               <div className='bg-neutral-100 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
                 {search.length > 0 ? (
