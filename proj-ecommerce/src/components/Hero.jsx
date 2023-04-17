@@ -11,9 +11,10 @@ const Hero = () => {
                 <div className='w-10 h-[2px] bg-purple-900 mr-2' />Novos Lançamentos
               </div>
               <div className='flex flex-col'>
-                <div className='text-7xl leading-none font-oswald mb-4 flex flex-col' >
-                  VENDAS DE PRIMAVERA
-                  <span className='font-bold' >MULHERES</span>
+                <div className='text-7xl leading-none mb-4 flex flex-col uppercase' >
+                  <span className='font-oswald'>Vendas de primavera</span> 
+                  <span className='text-xs py-2' >Para</span>
+                  <span className='font-bold font-oswald' >Mulheres</span>
                 </div>
               </div>
             </div>

@@ -34,8 +34,9 @@ const Navbar = ({ isTop }) => {
     <>
       <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
         <div className='mx-auto w-5/6 flex justify-between items-center'>
-          <Link to='/' className='text-4xl font-oswald font-bold' >
-            AD Store
+          <Link to='/' className='text-4xl font-oswald font-bold flex flex-col items-center gap-y-2 group' >
+            AD Shop For You
+            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-xs border w-full text-center py-1 tracking-[5px]`}>E-commerce Store</span>
           </Link>
           <div className='flex flex-row gap-x-4 w-2/4'>
             <div className='flex items-center w-full flex-row relative'>
