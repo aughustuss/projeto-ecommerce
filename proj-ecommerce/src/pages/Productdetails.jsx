@@ -48,8 +48,8 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='pb-16 md:pt-56 pt-72 font-montserrat h-fit flex flex-col items-center mx-auto w-5/6 gap-y-2' >
-        <div className='bg-white border h-full w-full' >
+      <section className='pb-16 md:pt-56 pt-72 font-montserrat h-fit flex flex-col items-center gap-y-2' >
+        <div className='bg-white border h-full md:w-5/6 w-full' >
           <div className='flex flex-col lg:flex-row items-center flex-1 justify-center '>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
               <img className='max-w-[200px] max-h-[500px] lg:max-w-sm' src={image} alt={title} />
@@ -72,7 +72,7 @@ const ProductDetails = () => {
           </div>
           <div className='mt-4 p-2'>{description}</div>
         </div>
-        <div className='flex flex-col gap-y-2 w-full'>
+        <div className='flex flex-col gap-y-2 w-5/6 '>
           <div className='text-xl md:text-4xl font-semibold'>Você também pode gostar</div>
           <div className='gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mx-auto max-w-sm md:max-w-none md:mx-0'>
             {filteredProducts.map((item) => {
