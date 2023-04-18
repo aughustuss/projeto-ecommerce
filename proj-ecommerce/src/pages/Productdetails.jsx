@@ -4,6 +4,7 @@ import { CartContext } from '../contexts/Cart'
 import { ProductContext } from '../contexts/Product'
 import { Button, styled } from '@mui/material';
 import { BsCart2 } from 'react-icons/bs';
+import Product from '../components/Product';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: 'white',
@@ -35,14 +36,21 @@ const ProductDetails = () => {
   if (!singleProduct) {
     return <section className='h-screen w-screen flex justify-center items-center' >Carregando...</section>
   }
+
+  const productCategory = singleProduct.category;
+
+  const filteredProducts = product.filter((item) => {
+    return item.category.toLowerCase() === productCategory.toLowerCase() && item.id !== parseInt(id);
+  });
+
   const { title, price, category, description, image } = singleProduct;
 
   return (
 
     <>
-      <section className='pb-16 pt-48 font-montserrat h-screen flex items-center' >
-        <div className='container mx-auto bg-white border' >
-          <div className='flex flex-col lg:flex-row items-center flex-1 justify-center'>
+      <section className='pb-16 md:pt-56 pt-72 font-montserrat h-fit flex flex-col items-center mx-auto w-5/6 gap-y-2' >
+        <div className='bg-white border h-full w-full' >
+          <div className='flex flex-col lg:flex-row items-center flex-1 justify-center '>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
               <img className='max-w-[200px] max-h-[500px] lg:max-w-sm' src={image} alt={title} />
             </div>
@@ -63,6 +71,16 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className='mt-4 p-2'>{description}</div>
+        </div>
+        <div className='flex flex-col gap-y-2 w-full'>
+          <div className='text-xl md:text-4xl font-semibold'>Você também pode gostar</div>
+          <div className='gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mx-auto max-w-sm md:max-w-none md:mx-0'>
+            {filteredProducts.map((item) => {
+              return (
+                <Product key={item.id} product={item} />
+              )
+            })}
+          </div>
         </div>
       </section>
     </>

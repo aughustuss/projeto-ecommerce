@@ -3,7 +3,8 @@ import { SideBarContext } from '../contexts/Sidebar'
 import { BsCart2 } from 'react-icons/bs'
 import { HiOutlineSearch } from 'react-icons/hi'
 import { MdArrowForward } from 'react-icons/md'
-import {MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp} from 'react-icons/md'
+import { CgClose } from 'react-icons/cg'
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/Cart';
 import { ProductContext } from '../contexts/Product';
@@ -33,16 +34,16 @@ const Navbar = ({ isTop }) => {
   return (
     <>
       <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
-        <div className='mx-auto w-5/6 flex justify-between items-center '>
-          <Link to='/' className='text-xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center md:gap-y-2' >
+        <div className='mx-auto w-5/6 flex flex-col md:flex-row justify-between items-center '>
+          <Link to='/' className='text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-2' >
             AD Shop For You
-            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-[8px] md:text-xs border w-full text-center md:py-2 md:tracking-[5px]`}>E-commerce Store</span>
+            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-xs border w-full text-center py-2 tracking-[5px]`}>E-commerce Store</span>
           </Link>
-          <div className='flex flex-row gap-x-4 w-2/4'>
+          <div className='flex flex-row gap-x-4 w-full md:w-2/4'>
             <div className='flex items-center w-full flex-row relative'>
               <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className={`${!isTop ? 'bg-neutral-100' : 'bg-neutral-200'} pl-2 w-full h-full outline-none text-neutral-600`} />
-              <span className='hidden md:flex md:absolute md:right-4 text-xl text-neutral-600'><HiOutlineSearch /></span>
-              <div className='bg-neutral-100 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
+              <span className='flex absolute right-4 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')}/> : <HiOutlineSearch/>}</span>
+              <div className='bg-neutral-100 z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
                 {search.length > 0 ? (
                   filteredSearch.map((item) => {
                     return (
@@ -80,10 +81,10 @@ const Navbar = ({ isTop }) => {
           </div>
 
         </div>
-        <div className=' flex w-5/6 justify-center'>
-          <div className='flex w-1/2 justify-between'>
-            <div onClick={() => setListOpen(!listOpen)} className=' transition duration-300 py-2 cursor-pointer  w-full text-center relative group flex flex-row items-center justify-center'>
-              <div className='flex-grow' >Categorias</div><div className=' flex-shrink-0 opacity-0 group-hover:opacity-100 transition duration-300 text-2xl self-end'> {!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp/>}</div>
+        <div className=' flex w-5/6 flex-row md:justify-center'>
+          <div className='flex w-full md:w-1/2'>
+            <div onClick={() => setListOpen(!listOpen)} className=' transition duration-300 py-2 cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
+              <div className='flex-grow' >Categorias</div><div className=' flex-shrink-0 opacity-0 group-hover:opacity-100 transition duration-300 text-2xl self-end'> {!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}</div>
               {listOpen ? (
                 <ul className={`text-black bg-neutral-100 capitalize absolute top-14 w-full p-2 rounded-b-md`} >
                   {uniqueCategories.map((item) => {
@@ -98,7 +99,7 @@ const Navbar = ({ isTop }) => {
                 null
               )}
             </div>
-            <Link to='/contact' className='cursor-pointer w-full flex py-2 justify-center  transition duration-300'>
+            <Link to='/contact' className='cursor-pointer w-full flex py-2 justify-end md:justify-center  transition duration-300'>
               Contato
             </Link>
           </div>

@@ -53,7 +53,7 @@ const Contact = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <section className='container mx-auto pb-16 pt-48 font-montserrat' >
+                <section className='container mx-auto pb-16 md:pt-56 pt-72 font-montserrat' >
                     <div className='flex border bg-white justify-center h-fit max-h-[800px] w-full p-4'>
                         <div className='flex flex-col w-full justify-center items-center '>
                             <div className='uppercase text-3xl font-semibold py-10 text-white bg-purple-700 w-full text-center'>

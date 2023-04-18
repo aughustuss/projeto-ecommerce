@@ -16,7 +16,7 @@ const App = () => {
     const getScroll = () => {
       if (window.scrollY === 0) {
         setIsTop(true);
-      } else if (window.scrollY > 80) {
+      } else if (window.scrollY != 0) {
         setIsTop(false);
       }
     }

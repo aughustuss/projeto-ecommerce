@@ -10,11 +10,11 @@ const Category = () => {
 
   const filteredProduct = product.filter((item) => {
     return item.category.toLowerCase() === cat.toLowerCase();
-  })
+  });
 
   return (
     <>
-      <section className='pt-48 pb-16 container mx-auto font-montserrat' >
+      <section className='md:pt-56 pt-72 pb-16 container mx-auto font-montserrat' >
         <div className='bg-white flex p-4 w-full h-[800px] border'>
           <div className='w-full flex flex-col h-full'>
             <div className='uppercase text-3xl font-semibold py-10 bg-purple-700 w-full text-white text-center' >{cat}</div>

@@ -24,7 +24,7 @@ const CartpageItem = ({ item }) => {
             <div className='border w-full px-4 h-[100px] flex items-center justify-between relative'>
                 <div className='items-center flex flex-row gap-x-2'>
                     <div>
-                        <img className='min-w-[60px] max-h-[80px] h-[80px]' src={image} />
+                        <img className='min-w-[60px] max-w-[70px] max-h-[80px] h-[80px]' src={image} />
                     </div>
                     <div className='flex flex-col' >
                         <div className='uppercase text-[10px] md:text-sm font-semibold' >{title}</div>

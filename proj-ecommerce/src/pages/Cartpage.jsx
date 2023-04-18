@@ -45,8 +45,8 @@ const Cartpage = () => {
 
     return (
         <>
-            <section className='container mx-auto h-screen pb-16 pt-48 font-montserrat'>
-                <div className='border h-full bg-white flex flex-col justify-between px-4 lg:px-8 py-2' >
+            <section className='container mx-auto pb-16 md:pt-56 pt-72 md:h-screen font-montserrat'>
+                <div className='border bg-white h-screen md:h-full flex flex-col justify-between px-4 lg:px-8 py-2' >
                     <div className='flex flex-col items-center w-full gap-y-2 overflow-x-hidden overflow-auto mb-4'>
                         {cart.map((item) => {
                             return (
