@@ -17,19 +17,19 @@ const Hero = () => {
 
   return (
     <>
-      <Slider {...setting} className='overflow-hidden h-screen' >
+      <Slider {...setting} className='overflow-hidden overflow-x-hidden h-screen w-screen' >
       <section className='text-white bg-no-repeat bg-cover bg-center pt-24 bg-purple-400 h-screen font-montserrat' >
-          <div className='w-5/6 mx-auto flex h-full justify-around'>
+          <div className='w-5/6 mx-auto flex flex-row h-full justify-around'>
             <div className='flex h-full justify-center items-center sm:items-baseline'>
-              <div className='h-full flex justify-center  flex-col'>
+              <div className='h-full flex justify-center flex-col'>
                 <div className='items-center flex flex-row uppercase'>
-                  <div className='w-10 h-[2px] bg-purple-900 mr-2' />Novos Lançamentos
+                  <div className='w-10 h-[2px] bg-purple-900 mr-2' />LANÇAMENTOS DE
                 </div>
                 <div className='flex flex-col'>
-                  <div className='text-7xl leading-none mb-4 flex flex-col uppercase' >
-                    <span className='font-oswald'>Vendas de primavera</span>
-                    <span className='text-xs py-2' >Para</span>
-                    <span className='font-bold font-oswald' >Mulheres</span>
+                  <div className='text-6xl md:text-7xl leading-none mb-4 flex flex-col uppercase' >
+                    <span className='font-oswald'>PRIMAVERA</span>
+                    <span className='text-xs py-2' >PARA</span>
+                    <span className='font-bold font-oswald' >MULHERES</span>
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@ const Hero = () => {
                   <div className='w-10 h-[2px] bg-purple-900 mr-2' />NOVIDADES
                 </div>
                 <div className='flex flex-col'>
-                  <div className='text-7xl leading-none mb-4 flex flex-col uppercase' >
+                  <div className='text-6xl md:text-7xl leading-none mb-4 flex flex-col uppercase' >
                     <span className='font-oswald'>Todos os dias</span>
                     <span className='text-xs py-2' >Várias novas</span>
                     <span className='font-bold font-oswald' >Ofertas</span>

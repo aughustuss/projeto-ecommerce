@@ -38,12 +38,12 @@ const Navbar = ({ isTop }) => {
     <>
       <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed md:py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
         <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
-          <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer min-w-[60px] justify-center'>
+          <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
             <AiOutlineMenu size={20} />
           </div>
-          <Link to='/' className='text-2xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-2' >
+          <Link to='/' className='text-xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-2' >
             AD Shop For You
-            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-xs border w-full text-center py-2 tracking-[5px]`}>E-commerce Store</span>
+            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-[8px] md:text-xs border w-full text-center md:py-2 tracking-[2px] md:tracking-[5px]`}>E-commerce Store</span>
           </Link>
           <div className='hidden md:flex flex-row gap-x-4 md:w-2/4'>
             <div className='flex items-center w-full flex-row relative'>
@@ -85,10 +85,10 @@ const Navbar = ({ isTop }) => {
               <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
             </div>
           </div>
-          <div className='flex flex-row gap-x-4 md:hidden items-center max-w-[60px] justify-center'>
+          <div className='flex flex-row gap-x-2 md:hidden items-center max-w-[60px] justify-center h-1/3 w-full'>
             <div className='cursor-pointer'>
               {!searchDiv ? (
-                <HiOutlineSearch size={20} onClick={() => setSearchDiv(!searchDiv)} />
+                <HiOutlineSearch size={18} onClick={() => setSearchDiv(!searchDiv)} />
               ) : (
                 <div className='top-0 absolute bg-white h-full w-full left-0 z-20 flex justify-center'>
                   <div className='w-full items-center justify-center h-full relative'>
@@ -128,7 +128,7 @@ const Navbar = ({ isTop }) => {
             </div>
             <div
               onClick={() => setIsOpen(!isOpen)}
-              className={`${isTop ? 'bg-purple-700 text-white' : ''} rounded-full p-2 text-2xl cursor-pointer flex relative `}
+              className={`rounded-full text-2xl cursor-pointer flex relative md:text-xl`}
             >
               <BsCart2 />
               <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>

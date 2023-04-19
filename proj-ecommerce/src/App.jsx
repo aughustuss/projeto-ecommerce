@@ -31,8 +31,8 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar isTop={isTop}/>
-        <MobileMenu/>
+        <Navbar isTop={isTop} />
+        <MobileMenu />
         <Routes>
           <Route path='/' index element={<Home />} />
           <Route path='/product/:id' element={<ProductDetails />} />
@@ -40,7 +40,6 @@ const App = () => {
           <Route path='/cartpage' element={<Cartpage />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
-
         <SideBar />
         <Footer />
       </BrowserRouter>
