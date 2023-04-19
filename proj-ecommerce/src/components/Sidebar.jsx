@@ -43,8 +43,9 @@ const CheckoutButton = styled(Button)(({ theme }) => ({
 
 const Sidebar = () => {
 
-  const { isOpen, handleClose } = useContext(SideBarContext)
+  const { isOpen, handleSideBarClose } = useContext(SideBarContext)
   const { cart, totalPrice, itemAmount } = useContext(CartContext);
+
   return (
     <>
       <div className={`${isOpen ? 'right-0' : '-right-full'} w-full shadow-current shadow-2xl bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8 flex flex-col justify-between pb-2`}>
@@ -54,7 +55,7 @@ const Sidebar = () => {
           </div>
           <div
             className='cursor-pointer w-8 h-8 flex justify-center items-center text-2xl'
-            onClick={handleClose}>
+            onClick={handleSideBarClose}>
             <IoMdArrowForward />
           </div>
         </div>

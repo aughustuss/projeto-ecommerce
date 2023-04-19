@@ -9,14 +9,15 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icon
 import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/Cart';
 import { ProductContext } from '../contexts/Product';
+import { MenuBarContext } from '../contexts/Menubar'
 
 const Navbar = ({ isTop }) => {
 
   const [search, setSearch] = useState('');
   const [searchDiv, setSearchDiv] = useState(false);
   const [listOpen, setListOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const { isOpen, setIsOpen } = useContext(SideBarContext);
+  const { menuOpen, setMenuOpen } = useContext(MenuBarContext);
   const { itemAmount } = useContext(CartContext);
   const { product } = useContext(ProductContext)
 
@@ -33,21 +34,12 @@ const Navbar = ({ isTop }) => {
   }
 
   const uniqueCategories = filterCategories(product);
-
   return (
     <>
       <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed md:py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
         <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
-          <div className='flex md:hidden p-0 m-0 cursor-pointer min-w-[60px] justify-center'>
-            {!menuOpen ? (
-              <AiOutlineMenu onClick={() => setMenuOpen(!menuOpen)} size={24} />
-            ) : (
-              <div className={`${menuOpen ? 'left-0' : '-left-full'} w-full shadow-current shadow-2xl bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8 flex flex-col justify-between pb-2`}>
-                <div>
-                  <MdArrowBack onClick={() => setMenuOpen(!menuOpen)} size={24} />
-                </div>
-              </div>
-            )}
+          <div onClick={() => setMenuOpen(!menuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer min-w-[60px] justify-center'>
+            <AiOutlineMenu size={20} />
           </div>
           <Link to='/' className='text-2xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-2' >
             AD Shop For You
