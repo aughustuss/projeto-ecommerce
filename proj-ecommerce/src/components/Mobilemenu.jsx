@@ -22,9 +22,9 @@ const MobileMenu = () => {
     return (
         <>
             <div>
-                <div className={`${isMenuOpen ? 'left-0' : '-left-full'} w-1/2 shadow-current shadow-2xl bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8 flex flex-col pb-2`}>
+                <div className={`${isMenuOpen ? 'left-0 shadow-2xl' : '-left-full'} w-full shadow-current  bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8 flex flex-col pb-2`}>
                     <div className='flex  flex-row-reverse items-center py-4 border-b justify-between border-b-neutral-200 w-full'>
-                        <div className='font-semibold uppercase ' >
+                        <div className='font-semibold uppercase' >
                             Menu
                         </div>
                         <div
@@ -34,10 +34,11 @@ const MobileMenu = () => {
                         </div>
                     </div>
                     <div className='flex flex-col gap-y-2 w-full'>
-                        <div onClick={() => setListOpen(!listOpen)} className='transition duration-300 py-2 px-4 cursor-pointer w-full relative group flex flex-col items-center md:justify-center justify-start'>
-                            <div className='w-full flex flex-row items-center' >
+                        <Link to='/' className='py-2 hover:bg-purple-700 hover:text-white w-full px-4 transition duration-300'>Home</Link>
+                        <div  className='transition duration-300 py-2 px-4 cursor-pointer w-full relative flex flex-col items-center md:justify-center justify-start'>
+                            <div onClick={() => setListOpen(!listOpen)} className='w-full flex flex-row items-center' >
                                 <div className='flex-grow'>Categorias</div>
-                                <div className='flex-shrink-0 opacity-0 group-hover:opacity-100 transition duration-300 text-2xl self-end'>{!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}</div>
+                                <div className='flex-shrink-0 transition duration-300 text-2xl self-end'>{!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}</div>
                             </div>
                             {listOpen ? (
                                 <ul className={`${!listOpen ? ' -translate-y-8' : 'translate-y-0'} text-black  capitalize w-full p-2 rounded-b-md flex flex-col transition-all duration-300`}>

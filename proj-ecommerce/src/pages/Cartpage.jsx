@@ -45,7 +45,7 @@ const Cartpage = () => {
 
     return (
         <>
-            <section className='container mx-auto pb-16 md:pt-56 pt-72 md:h-screen font-montserrat'>
+            <section className='container mx-auto pb-12 md:pt-56 pt-36 md:h-screen font-montserrat'>
                 
                 <div className='border bg-white h-screen md:h-full flex flex-col justify-between px-4 lg:px-8 py-2' >
                     {cart.length === 0 ? (

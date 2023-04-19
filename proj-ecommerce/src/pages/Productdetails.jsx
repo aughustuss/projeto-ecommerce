@@ -48,7 +48,7 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='pb-16 md:pt-56 pt-72 font-montserrat h-fit flex flex-col items-center gap-y-2' >
+      <section className='pb-12 md:pt-56 pt-36 font-montserrat h-fit flex flex-col items-center gap-y-2' >
         <div className='bg-white border h-full md:w-5/6 w-full' >
           <div className='flex flex-col lg:flex-row items-center flex-1 justify-center '>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>

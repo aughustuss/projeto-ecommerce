@@ -137,8 +137,14 @@ const Navbar = ({ isTop }) => {
         </div>
         <div className='hidden md:flex w-5/6 flex-row md:justify-center'>
           <div className='flex w-full md:w-1/2'>
-            <div onClick={() => setListOpen(!listOpen)} className=' transition duration-300 py-2 cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
-              <div className='flex-grow' >Categorias</div><div className=' flex-shrink-0 opacity-0 group-hover:opacity-100 transition duration-300 text-2xl self-end'> {!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}</div>
+            <div  className=' transition duration-300 py-2 cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
+              <div onClick={() => setListOpen(!listOpen)} className='flex flex-row items-center w-full'>
+                <div className='flex-grow' >
+                  Categorias</div>
+                <div className=' flex-shrink-0 opacity-0 group-hover:opacity-100 transition duration-300 text-2xl self-end'>
+                  {!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
+                </div>
+              </div>
               {listOpen ? (
                 <ul className={`text-black bg-neutral-100 capitalize absolute top-14 w-full p-2 rounded-b-md`} >
                   {uniqueCategories.map((item) => {
