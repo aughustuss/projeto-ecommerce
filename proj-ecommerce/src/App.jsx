@@ -5,6 +5,7 @@ import ProductDetails from './pages/Productdetails'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SideBar from './components/Sidebar'
+import Menubar from './components/MenuBar'
 import Cartpage from './pages/Cartpage'
 import Category from './pages/Category'
 import Contact from './pages/Contact'
@@ -31,13 +32,15 @@ const App = () => {
     <>
       <BrowserRouter>
         <Navbar isTop={isTop} />
+        <Menubar />
         <Routes>
           <Route path='/' index element={<Home />} />
           <Route path='/product/:id' element={<ProductDetails />} />
-          <Route path='/category/:cat' element={<Category/>} />
-          <Route path='/cartpage' element={<Cartpage/>} />
-          <Route path='/contact' element={<Contact/>} />
+          <Route path='/category/:cat' element={<Category />} />
+          <Route path='/cartpage' element={<Cartpage />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
+
         <SideBar />
         <Footer />
       </BrowserRouter>

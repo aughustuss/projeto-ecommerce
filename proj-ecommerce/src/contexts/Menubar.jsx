@@ -6,13 +6,13 @@ const MenuBarProvider = ({children}) => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleMenuClose = () => {
+  const handleMenuBarClose = () => {
     setMenuOpen(!menuOpen);
   }
 
   return (
     <>
-      <MenuBarContext.Provider value={{menuOpen, setMenuOpen, handleMenuClose}}>
+      <MenuBarContext.Provider value={{menuOpen, setMenuOpen, handleMenuBarClose}}>
         {children}
       </MenuBarContext.Provider>
     </>
