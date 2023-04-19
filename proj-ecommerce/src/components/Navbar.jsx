@@ -17,7 +17,7 @@ const Navbar = ({ isTop }) => {
   const [searchDiv, setSearchDiv] = useState(false);
   const [listOpen, setListOpen] = useState(false);
   const { isOpen, setIsOpen } = useContext(SideBarContext);
-  const { menuOpen, setMenuOpen } = useContext(MenuBarContext);
+  const { isMenuOpen, setisMenuOpen } = useContext(MenuBarContext);
   const { itemAmount } = useContext(CartContext);
   const { product } = useContext(ProductContext)
 
@@ -38,7 +38,7 @@ const Navbar = ({ isTop }) => {
     <>
       <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed md:py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
         <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
-          <div onClick={() => setMenuOpen(!menuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer min-w-[60px] justify-center'>
+          <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer min-w-[60px] justify-center'>
             <AiOutlineMenu size={20} />
           </div>
           <Link to='/' className='text-2xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-2' >
@@ -143,7 +143,7 @@ const Navbar = ({ isTop }) => {
                 <ul className={`text-black bg-neutral-100 capitalize absolute top-14 w-full p-2 rounded-b-md`} >
                   {uniqueCategories.map((item) => {
                     return (
-                      <li key={item} className={`hover:text-white hover:bg-purple-600 text-sm md:text-md flex transition duration-300 `}>
+                      <li key={item} className={`hover:text-white hover:bg-purple-600 text-sm md:text-md flex transition duration-500 `}>
                         <Link className='w-full h-full p-2 ' to={`/category/${item}`} key={item}> {item} </Link>
                       </li>
                     )

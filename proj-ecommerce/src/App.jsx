@@ -5,10 +5,10 @@ import ProductDetails from './pages/Productdetails'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SideBar from './components/Sidebar'
-import Menubar from './components/MenuBar'
 import Cartpage from './pages/Cartpage'
 import Category from './pages/Category'
 import Contact from './pages/Contact'
+import MobileMenu from './components/Mobilemenu'
 
 const App = () => {
   const [isTop, setIsTop] = useState(true);
@@ -31,7 +31,8 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar isTop={isTop} />
+        <Navbar isTop={isTop}/>
+        <MobileMenu/>
         <Routes>
           <Route path='/' index element={<Home />} />
           <Route path='/product/:id' element={<ProductDetails />} />
@@ -39,7 +40,7 @@ const App = () => {
           <Route path='/cartpage' element={<Cartpage />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
-        <Menubar />
+
         <SideBar />
         <Footer />
       </BrowserRouter>
