@@ -17,8 +17,8 @@ const Hero = () => {
 
   return (
     <>
-      <Slider {...setting} className='overflow-hidden overflow-x-hidden h-screen w-screen' >
-      <section className='text-white bg-no-repeat bg-cover bg-center pt-24 bg-purple-400 h-screen font-montserrat' >
+      <Slider {...setting} className='overflow-hidden overflow-x-hidden  ' >
+      <section className='text-white bg-no-repeat bg-cover bg-center pt-24 bg-purple-400 h-screen' >
           <div className='w-5/6 mx-auto flex flex-row h-full justify-around'>
             <div className='flex h-full justify-center items-center sm:items-baseline'>
               <div className='h-full flex justify-center flex-col'>

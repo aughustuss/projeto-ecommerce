@@ -28,7 +28,7 @@ const CartpageItem = ({ item }) => {
                     </div>
                     <div className='flex flex-col' >
                         <div className='uppercase text-[10px] md:text-sm font-semibold' >{title}</div>
-                        <div className='text-[10px] md:text-[12px]' >R$ {price}</div>
+                        <div className='text-xs font-semibold' > <span className='text-secondary'>R$</span> {price}</div>
                     </div>
                     
                 </div>

@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom'
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: 'white',
-  backgroundColor: 'rgb(126, 34, 206)',
-  border: '1px solid rgb(126, 34, 206)',
+  backgroundColor: '#19456B',
+  border: '1px solid #19456B',
   padding: '1rem',
   margin: '0',
   minWidth: '0',
@@ -19,14 +19,14 @@ const ColorButton = styled(Button)(({ theme }) => ({
   alignItems: 'center',
   width: '100%',
   '&:hover': {
-    backgroundColor: 'rgb(88, 28, 135)'
+    backgroundColor: '#0f3f69'
   }
 }));
 
 const CheckoutButton = styled(Button)(({ theme }) => ({
-  color: 'rgb(126, 34, 206)',
+  color: '#19456B',
   backgroundColor: 'transparent',
-  border: '1px solid rgb(126, 34, 206)',
+  border: '1px solid #19456B',
   padding: '1rem',
   margin: '0',
   minWidth: '0',
@@ -35,8 +35,8 @@ const CheckoutButton = styled(Button)(({ theme }) => ({
   alignItems: 'center',
   width: '100%',
   '&:hover': {
-    border: '1px solid rgb(126, 34, 206)',
-    backgroundColor: 'rgb(88, 28, 135)',
+    border: '1px solid #19456B',
+    backgroundColor: '#0f3f69',
     color: 'white'
   }
 }));

@@ -36,18 +36,18 @@ const Navbar = ({ isTop }) => {
   const uniqueCategories = filterCategories(product);
   return (
     <>
-      <nav className={`${isTop ? 'text-black  border-b' : 'bg-purple-700 text-white shadow-black shadow-sm'} transition-all duration-300 fixed md:py-4 flex flex-col gap-y-3 items-center w-full z-40 font-montserrat`} >
+      <header className='text-black bg-white transition-all py-2 duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
         <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
           <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
             <AiOutlineMenu size={20} />
           </div>
-          <Link to='/' className='text-xl md:text-4xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-2' >
+          <Link to='/' className='text-xl md:text-2xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-1' >
             AD Shop For You
-            <span className={`${isTop ? 'border-purple-700' : 'border-white'} uppercase text-[8px] md:text-xs border w-full text-center md:py-2 tracking-[2px] md:tracking-[5px]`}>E-commerce Store</span>
+            <span className='uppercase text-[8px] md:text-xs border border-black w-full text-center tracking-[2px] md:tracking-[3px]'>E-commerce Store</span>
           </Link>
           <div className='hidden md:flex flex-row gap-x-4 md:w-2/4'>
             <div className='flex items-center w-full flex-row relative'>
-              <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className={`bg-white pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600`} />
+              <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-md'/>
               <span className='flex md:absolute right-4 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
               <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
                 {search.length > 0 ? (
@@ -79,8 +79,7 @@ const Navbar = ({ isTop }) => {
             </div>
             <div
               onClick={() => setIsOpen(!isOpen)}
-              className={` ${isTop ? 'bg-purple-700 text-white' : ''} text-2xl cursor-pointer hidden md:flex relative rounded-full p-2`}
-            >
+              className='text-2xl cursor-pointer hidden md:flex relative rounded-full p-2 bg-primary text-white'>
               <BsCart2 />
               <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
             </div>
@@ -93,7 +92,7 @@ const Navbar = ({ isTop }) => {
                 <div className='top-0 absolute bg-white h-full w-full left-0 z-20 flex justify-center'>
                   <div className='w-full items-center justify-center h-full relative'>
                     <div className='w-5/6 mx-auto flex flex-row items-center justify-between h-full gap-x-4' >
-                      <input placeholder='Digite sua busca...' className='py-2 bg-neutral-100 w-full outline-none text-neutral-600`' onChange={(e) => setSearch(e.target.value)} value={search} />
+                      <input placeholder='Digite sua busca...' className='rounded-md py-2 bg-white w-full outline-none text-neutral-600`' onChange={(e) => setSearch(e.target.value)} value={search} />
                       <span><CgClose color='black' onClick={() => { setSearchDiv(!searchDiv); setSearch('') }} size={20} /></span>
                     </div>
                     <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
@@ -137,7 +136,7 @@ const Navbar = ({ isTop }) => {
         </div>
         <div className='hidden md:flex w-5/6 flex-row md:justify-center'>
           <div className='flex w-full md:w-1/2'>
-            <div  className=' transition duration-300 py-2 cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
+            <div  className=' transition duration-300  cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
               <div onClick={() => setListOpen(!listOpen)} className='flex flex-row items-center w-full'>
                 <div className='flex-grow' >
                   Categorias</div>
@@ -146,10 +145,10 @@ const Navbar = ({ isTop }) => {
                 </div>
               </div>
               {listOpen ? (
-                <ul className={`text-black bg-neutral-100 capitalize absolute top-14 w-full p-2 rounded-b-md`} >
+                <ul className={`text-black bg-white capitalize absolute top-full w-full p-2 rounded-b-md`} >
                   {uniqueCategories.map((item) => {
                     return (
-                      <li key={item} className={`hover:text-white hover:bg-purple-600 text-sm md:text-md flex transition duration-500 `}>
+                      <li key={item} className={`hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500 `}>
                         <Link className='w-full h-full p-2 ' to={`/category/${item}`} key={item}> {item} </Link>
                       </li>
                     )
@@ -164,7 +163,7 @@ const Navbar = ({ isTop }) => {
             </Link>
           </div>
         </div>
-      </nav>
+      </header>
     </>
   )
 }

@@ -8,7 +8,7 @@ import Product from '../components/Product';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: 'white',
-  backgroundColor: 'rgb(126, 34, 206)',
+  backgroundColor: '#19456B',
   padding: '1rem',
   margin: '0',
   minWidth: '0',
@@ -18,7 +18,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   justifyContent: 'space-between',
   width: '100%',
   '&:hover': {
-    backgroundColor: 'rgb(88, 28, 135)'
+    backgroundColor: '#0f3f69'
   }
 }));
 
@@ -48,8 +48,8 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='pb-12 md:pt-56 pt-36 font-montserrat h-fit flex flex-col items-center gap-y-2' >
-        <div className='bg-white border h-full md:w-5/6 w-full' >
+      <section className='w-full pb-6 md:pt-32 pt-36h-fit flex flex-col items-center gap-y-2' >
+        <div className='bg-white border h-full' >
           <div className='flex flex-col lg:flex-row items-center flex-1 justify-center '>
             <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
               <img className='max-w-[200px] max-h-[500px] lg:max-w-sm' src={image} alt={title} />
@@ -58,21 +58,21 @@ const ProductDetails = () => {
               <div className='flex flex-1 text-center lg:text-left'>
                 <h1 className='font-semibold mb-2 max-w-[450px] mx-auto'>{title}</h1>
               </div>
-              <div className='text-xl text-green-600 font-bold'>
+              <div className='text-xl text-secondary font-bold'>
                 R${price}
               </div>
               <p className='capitalize text-xs' >{category}</p>
 
-              <ColorButton onClick={() => addToCart(singleProduct, singleProduct.id)}>
-                Adicionar ao carrinho <BsCart2 className='text-2xl' />
+              <ColorButton className='flex flex-row items-center gap-x-1' onClick={() => addToCart(singleProduct, singleProduct.id)}>
+                Adicionar ao carrinho <BsCart2 className='text-lg' />
               </ColorButton>
 
 
             </div>
           </div>
-          <div className='mt-4 p-2'>{description}</div>
+          <div className='mt-4 p-2 text-xs md:text-sm'>{description}</div>
         </div>
-        <div className='flex flex-col gap-y-2 w-5/6 '>
+        <div className='flex flex-col gap-y-2 w-full '>
           <div className='text-xl md:text-4xl font-semibold'>Você também pode gostar</div>
           <div className='gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mx-auto max-w-sm md:max-w-none md:mx-0'>
             {filteredProducts.map((item) => {

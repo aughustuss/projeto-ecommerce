@@ -5,14 +5,14 @@ import { ThemeProvider, TextField, createTheme, Button, styled } from '@mui/mate
 const StyledTextField = styled(TextField)({
     '& .MuiOutlinedInput-root' : {
         '&:hover fieldset': {
-            'borderColor' : 'rgb(126, 34, 206)'
+            'borderColor' : '#19456B'
         }
     }
 })
 
 const ColorButton = styled(Button)(({ theme }) => ({
     color: 'white',
-    backgroundColor: 'rgb(126, 34, 206)',
+    backgroundColor: '#19456B',
     padding: '1rem',
     margin: '0',
     minWidth: '0',
@@ -21,7 +21,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
     alignItems: 'center',
     width: '100%',
     '&:hover': {
-      backgroundColor: 'rgb(88, 28, 135)'
+      backgroundColor: '#0f3f69'
     }
   }));
 
@@ -45,7 +45,7 @@ const Contact = () => {
         palette: {
             mode: 'light',
             primary: {
-                main: 'rgb(126, 34, 206)'
+                main: '#19456B'
             }
         }
     })
@@ -53,10 +53,10 @@ const Contact = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <section className='container mx-auto pb-12 md:pt-56 pt-36 font-montserrat' >
+                <section className='w-full pb-6 md:pt-32 pt-36' >
                     <div className='flex border bg-white justify-center h-fit max-h-[800px] w-full p-4'>
                         <div className='flex flex-col w-full justify-center items-center '>
-                            <div className='uppercase text-3xl font-semibold py-10 text-white bg-purple-700 w-full text-center'>
+                            <div className='uppercase text-3xl font-semibold py-10 text-white bg-primary w-full text-center'>
                                 Entre em contato
                             </div>
                             <form onSubmit={onSubmit} className='flex flex-col items-center h-full w-full md:w-1/2 py-2 gap-y-4 justify-between' action="">

@@ -14,10 +14,10 @@ const Category = () => {
 
   return (
     <>
-      <section className='pb-12 md:pt-56 pt-36 container mx-auto font-montserrat' >
+      <section className='pb-4 md:pt-32 pt-36 w-full' >
         <div className='bg-white flex p-4 w-full h-[800px] border'>
           <div className='w-full flex flex-col h-full'>
-            <div className='uppercase text-3xl font-semibold py-10 bg-purple-700 w-full text-white text-center' >{cat}</div>
+            <div className='uppercase text-3xl font-semibold py-10 bg-primary w-full text-white text-center' >{cat}</div>
             <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 max-h-full overflow-x-hidden overflow-y-auto py-2'>
               {filteredProduct.map((item) => {
                 return(

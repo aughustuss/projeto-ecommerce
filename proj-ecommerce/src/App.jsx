@@ -33,13 +33,15 @@ const App = () => {
       <BrowserRouter>
         <Navbar isTop={isTop} />
         <MobileMenu />
-        <Routes>
-          <Route path='/' index element={<Home />} />
-          <Route path='/product/:id' element={<ProductDetails />} />
-          <Route path='/category/:cat' element={<Category />} />
-          <Route path='/cartpage' element={<Cartpage />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
+        <div className='font-poppins container mx-auto px-4 md:px-0 relative'>
+          <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='/product/:id' element={<ProductDetails />} />
+            <Route path='/category/:cat' element={<Category />} />
+            <Route path='/cartpage' element={<Cartpage />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
+        </div>
         <SideBar />
         <Footer />
       </BrowserRouter>
