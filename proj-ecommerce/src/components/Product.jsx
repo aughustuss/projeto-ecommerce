@@ -17,9 +17,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 const Product = ({ product }) => {
 
-  const { image, title, price, id, category, rate, count } = product;
+  const { image, title, price, id, category, rating, rate, count } = product;
   const { addToCart } = useContext(CartContext);
-  console.log(product);
+  console.log(rate);
   return (
     <>
       <div className='w-full sm:w-full bg-white flex flex-col justify-between shadow-md p-2 rounded-md border-slate-200 '>
@@ -53,7 +53,10 @@ const Product = ({ product }) => {
             <div className='font-semibold' > <span className='text-secondary'>R$ </span> {price}</div>
             <div className='capitalize text-xs text-gray'>{category}</div>
           </div>
-          <Rating readOnly value={2} />
+          <div className='w-full flex flex-row items-center gap-x-2'>
+            <Rating size='small' readOnly value={rating.rate} precision={0.1} />
+            <p className='text-gray text-[10px]'>{rating.count} Avaliações </p>
+          </div>
         </div>
       </div>
     </>
