@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { SideBarContext } from '../contexts/Sidebar'
-import { BsCart2 } from 'react-icons/bs'
-import { HiOutlineSearch } from 'react-icons/hi'
+import { HiOutlineSearch, HiShoppingCart } from 'react-icons/hi'
 import { MdArrowForward, MdArrowBack } from 'react-icons/md'
 import { CgClose } from 'react-icons/cg'
 import { AiOutlineMenu } from 'react-icons/ai'
@@ -54,8 +53,8 @@ const Navbar = ({ isTop }) => {
                 {search.length > 0 ? (
                   filteredSearch.map((item) => {
                     return (
-                      <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className='w-full h-fit md:h-[60px] border p-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
-                        <div className='h-full flex w-full flex-col md:flex-row text-xs items-center text-neutral-600 uppercase gap-x-2' >
+                      <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className='w-full h-fit md:h-[60px] border border-slate-200 mx-2 rounded-md p-2 mb-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
+                        <div className='h-full flex w-full flex-col md:flex-row text-xs items-center text-gray uppercase gap-x-2' >
                           <img className='md:h-full h-16 w-16 md:w-[40px]' src={item.image} />
                           <div className='flex flex-col w-full'>
                             <div className='text-[8px] md:flex lg:text-[12px] '>
@@ -81,7 +80,7 @@ const Navbar = ({ isTop }) => {
             <div
               onClick={() => setIsOpen(!isOpen)}
               className='text-2xl cursor-pointer hidden md:flex relative rounded-full p-2 bg-primary text-white'>
-              <BsCart2 />
+              <HiShoppingCart />
               <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
             </div>
           </div>
@@ -93,14 +92,14 @@ const Navbar = ({ isTop }) => {
                 <div className='top-0 absolute bg-white h-full w-full left-0 z-20 flex justify-center'>
                   <div className='w-full items-center justify-center h-full relative'>
                     <div className='w-5/6 mx-auto flex flex-row items-center justify-between h-full gap-x-4' >
-                      <input placeholder='Digite sua busca...' className='rounded-md py-2 bg-white w-full outline-none text-neutral-600`' onChange={(e) => setSearch(e.target.value)} value={search} />
+                      <input placeholder='Digite sua busca...' className='rounded-md py-2 w-full outline-none text-gray bg-slate-200' onChange={(e) => setSearch(e.target.value)} value={search} />
                       <span><CgClose color='black' onClick={() => { setSearchDiv(!searchDiv); setSearch('') }} size={20} /></span>
                     </div>
-                    <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
+                    <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll shadow-md'>
                       {search.length > 0 ? (
                         filteredSearch.map((item) => {
                           return (
-                            <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className='w-full h-fit md:h-[60px] border p-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
+                            <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className='h-fit md:h-[60px] mx-2 border border-slate-200 rounded-md mb-2 p-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
                               <div className='h-full flex w-full flex-col md:flex-row text-xs items-center text-neutral-600 uppercase gap-x-2' >
                                 <img className='md:h-full h-16 w-16 md:w-[40px]' src={item.image} />
                                 <div className='flex flex-col w-full'>
@@ -130,7 +129,7 @@ const Navbar = ({ isTop }) => {
               onClick={() => setIsOpen(!isOpen)}
               className={`rounded-full text-2xl cursor-pointer flex relative md:text-xl`}
             >
-              <BsCart2 />
+              <HiShoppingCart />
               <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
             </div>
           </div>
@@ -146,10 +145,10 @@ const Navbar = ({ isTop }) => {
                 </div>
               </div>
               {listOpen ? (
-                <ul className={`text-black bg-white capitalize absolute top-full w-full p-2 rounded-b-md`} >
+                <ul className='text-gray bg-white capitalize absolute top-full w-full p-2 rounded-b-md' >
                   {CategoriesArray.map((item) => {
                     return (
-                      <li key={item.id} className={`hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500 `}>
+                      <li key={item.id} className='hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500'>
                         <Link className='w-full h-full p-2 ' to={`/category/${item.title}`}> {item.title} </Link>
                       </li>
                     )

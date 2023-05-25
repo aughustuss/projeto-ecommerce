@@ -31,17 +31,21 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar isTop={isTop} />
-        <MobileMenu />
-        <Routes>
-          <Route path='/' index element={<Home />} />
-          <Route path='/product/:id' element={<ProductDetails />} />
-          <Route path='/category/:cat' element={<Category />} />
-          <Route path='/cartpage' element={<Cartpage />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
-        <SideBar />
-        <Footer />
+        <div className='font-body'>
+          <Navbar isTop={isTop} />
+          <MobileMenu />
+          <div className='container mx-auto px-8 md:px-0'>
+            <Routes>
+              <Route path='/' index element={<Home />} />
+              <Route path='/product/:id' element={<ProductDetails />} />
+              <Route path='/category/:cat' element={<Category />} />
+              <Route path='/cartpage' element={<Cartpage />} />
+              <Route path='/contact' element={<Contact />} />
+            </Routes>
+            <SideBar />
+          </div>
+          <Footer />
+        </div>
       </BrowserRouter>
     </>
   )

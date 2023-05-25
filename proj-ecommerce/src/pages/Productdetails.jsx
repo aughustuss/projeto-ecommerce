@@ -2,26 +2,11 @@ import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../contexts/Cart'
 import { ProductContext } from '../contexts/Product'
-import { Button, styled } from '@mui/material';
-import { BsCart2 } from 'react-icons/bs';
+import {ThemeProvider } from '@mui/material';
 import Product from '../components/Product';
-
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: 'white',
-  backgroundColor: '#19456B',
-  padding: '1rem',
-  margin: '0',
-  minWidth: '0',
-  borderRadius: '0',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '100%',
-  '&:hover': {
-    backgroundColor: '#0f3f69'
-  }
-}));
-
+import ReusableButton from '../components/reusables/Button';
+import { theme } from '../utils/theme';
+import { HiShoppingCart } from 'react-icons/hi';
 
 const ProductDetails = () => {
 
@@ -48,41 +33,43 @@ const ProductDetails = () => {
   return (
 
     <>
-      <section className='w-full pb-6 md:pt-32 pt-36h-fit flex flex-col items-center gap-y-2' >
-        <div className='bg-white border h-full' >
-          <div className='flex flex-col lg:flex-row items-center flex-1 justify-center '>
-            <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
-              <img className='max-w-[200px] max-h-[500px] lg:max-w-sm' src={image} alt={title} />
+      <ThemeProvider theme={theme}>
+        <section className='container mx-auto pb-6 md:pt-32 pt-32 h-fit flex flex-col items-center gap-y-2 text-gray font-body' >
+          <div className='bg-white border-gray rounded-md min-h-[600px] max-h-fit w-full flex flex-col justify-between p-4' >
+            <div className='flex flex-col lg:flex-row items-center flex-1 justify-center '>
+              <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
+                <img className='max-w-[200px] max-h-[500px] lg:max-w-sm burn' src={image} alt={title} />
+              </div>
+              <div className='flex flex-col p-2 gap-y-4 w-full md:flex-[0.3] items-start h-full justify-center bg-quartiary rounded-md shadow-md min-h-[500px]'>
+                <div className='flex flex-col items-start text-left'>
+                  <h1 className='font-semibold mb-2 max-w-[450px] mx-auto self-start'>{title}</h1>
+                </div>
+                <div className='text-xl text-secondary font-bold'>
+                  R${price}
+                </div>
+                <p className='capitalize text-xs' >{category}</p>
+                <ReusableButton variant='contained' className='flex flex-row items-center gap-x-1 w-full' onClick={() => addToCart(singleProduct, singleProduct.id)}>
+                  Adicionar ao carrinho <HiShoppingCart className='text-lg' />
+                </ReusableButton>
+              </div>
             </div>
-            <div className='flex flex-col p-2 gap-y-4'>
-              <div className='flex flex-1 text-center lg:text-left'>
-                <h1 className='font-semibold mb-2 max-w-[450px] mx-auto'>{title}</h1>
-              </div>
-              <div className='text-xl text-secondary font-bold'>
-                R${price}
-              </div>
-              <p className='capitalize text-xs' >{category}</p>
-
-              <ColorButton className='flex flex-row items-center gap-x-1' onClick={() => addToCart(singleProduct, singleProduct.id)}>
-                Adicionar ao carrinho <BsCart2 className='text-lg' />
-              </ColorButton>
-
-
+            <div className='mt-4 p-2 text-xs md:text-sm'>{description}</div>
+          </div>
+          <div className='flex flex-col gap-y-4 w-full '>
+            <div className='w-full flex flex-col'>
+              <p className='text-lg text-secondary font-semibold'>Aproveite também</p>
+              <p className='text-5xl text-primary font-semibold font-title'>Você pode gostar</p>
+            </div>
+            <div className='gap-2 sm:gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mx-auto max-w-sm md:max-w-none md:mx-0'>
+              {filteredProducts.map((item) => {
+                return (
+                  <Product key={item.id} product={item} />
+                )
+              })}
             </div>
           </div>
-          <div className='mt-4 p-2 text-xs md:text-sm'>{description}</div>
-        </div>
-        <div className='flex flex-col gap-y-2 w-full '>
-          <div className='text-xl md:text-4xl font-semibold'>Você também pode gostar</div>
-          <div className='gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mx-auto max-w-sm md:max-w-none md:mx-0'>
-            {filteredProducts.map((item) => {
-              return (
-                <Product key={item.id} product={item} />
-              )
-            })}
-          </div>
-        </div>
-      </section>
+        </section>
+      </ThemeProvider>
     </>
   )
 }

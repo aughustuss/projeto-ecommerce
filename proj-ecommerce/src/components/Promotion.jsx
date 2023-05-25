@@ -1,14 +1,16 @@
 import React, { useContext } from 'react'
 import { ProductContext } from '../contexts/Product'
 import Product from './Product';
-import Slides from './Slides';
+import Slides from './reusables/Slides';
 import { SwiperSlide } from 'swiper/react';
+import Categorylink from './reusables/Categorylink';
 
 const Promotion = () => {
     const { product } = useContext(ProductContext);
     const promotionProduct = product.length > 0 ? product.filter((item) => {
         return item.category.toLowerCase() === 'electronics';
     }) : [];
+    const category = promotionProduct[0].category;
     return (
         <>
             <section className='w-full flex flex-col gap-y-4'>
@@ -24,6 +26,7 @@ const Promotion = () => {
                             </SwiperSlide>
                         )
                     })}
+                    <Categorylink position="justify-end" link={category} />
                 </Slides>
             </section>
         </>

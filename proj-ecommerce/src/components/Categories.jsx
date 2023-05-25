@@ -2,7 +2,7 @@ import React from 'react'
 import { SwiperSlide } from 'swiper/react'
 import { CategoriesArray } from '../utils/datas'
 import { Link } from 'react-router-dom'
-import Slides from './Slides'
+import Slides from './reusables/Slides'
 
 const Categories = () => {
     return (

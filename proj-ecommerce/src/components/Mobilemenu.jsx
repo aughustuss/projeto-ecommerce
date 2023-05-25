@@ -4,6 +4,7 @@ import { MenuBarContext } from '../contexts/Menubar'
 import { Link } from 'react-router-dom';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md'
 import { ProductContext } from '../contexts/Product';
+import { CategoriesArray } from '../utils/datas';
 
 const MobileMenu = () => {
 
@@ -33,26 +34,26 @@ const MobileMenu = () => {
                             <IoMdArrowBack />
                         </div>
                     </div>
-                    <div className='flex flex-col gap-y-2 w-full'>
-                        <Link to='/' className='py-2 hover:bg-purple-700 hover:text-white w-full px-4 transition duration-300'>Home</Link>
+                    <div className='flex flex-col gap-y-2 w-full text-gray text-sm'>
+                        <Link to='/' className='py-2 hover:bg-primary hover:text-white w-full px-4 transition duration-300'>Home</Link>
                         <div  className='transition duration-300 py-2 px-4 cursor-pointer w-full relative flex flex-col items-center md:justify-center justify-start'>
                             <div onClick={() => setListOpen(!listOpen)} className='w-full flex flex-row items-center' >
                                 <div className='flex-grow'>Categorias</div>
                                 <div className='flex-shrink-0 transition duration-300 text-2xl self-end'>{!listOpen ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}</div>
                             </div>
                             {listOpen ? (
-                                <ul className={`${!listOpen ? ' -translate-y-8' : 'translate-y-0'} text-black  capitalize w-full p-2 rounded-b-md flex flex-col transition-all duration-300`}>
-                                    {uniqueCategories.map((item) => {
+                                <ul className={`${!listOpen ? ' -translate-y-8' : 'translate-y-0'} text-xs text-gray capitalize w-full p-2 rounded-b-md flex flex-col transition-all duration-300`}>
+                                    {CategoriesArray.map((item) => {
                                         return (
-                                            <li key={item} className='hover:text-white hover:bg-purple-600 text-sm md:text-md flex transition duration-500 w-full'>
-                                                <Link className='w-full h-full p-2' to={`/category/${item}`} key={item}>{item}</Link>
+                                            <li key={item.id} className='hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500 w-full'>
+                                                <Link className='w-full h-full p-2' to={`/category/${item.title}`} >{item.title}</Link>
                                             </li>
                                         )
                                     })}
                                 </ul>
                             ) : null}
                         </div>
-                        <Link to='/contact' className='cursor-pointer w-full flex py-2 hover:bg-purple-700 px-4 hover:text-white transition duration-300' >Contato</Link>
+                        <Link to='/contact' className='cursor-pointer w-full flex py-2 hover:bg-primary px-4 hover:text-white transition duration-300' >Contato</Link>
                     </div>
                 </div>
             </div>

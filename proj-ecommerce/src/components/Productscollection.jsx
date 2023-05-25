@@ -15,7 +15,7 @@ const Productscollection = () => {
                         <p className='text-5xl text-primary font-semibold font-title'>Dê uma olhada em tudo que há de melhor</p>
                     </div>
                     <div className='min-h-[2000px] sm:min-h-[800px]'>
-                        <div className='gap-2 sm:gap-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 h-full place-items-start'>
+                        <div className='gap-2 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 h-full place-items-start'>
                             {product.slice((page - 1) * 10, (page - 1) * 10 + 10).map((product) => {
                                 return (
                                     <Product product={product} key={product.id} />
