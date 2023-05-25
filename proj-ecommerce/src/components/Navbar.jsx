@@ -11,7 +11,7 @@ import { ProductContext } from '../contexts/Product';
 import { MenuBarContext } from '../contexts/Menubar'
 import { CategoriesArray } from '../utils/datas'
 
-const Navbar = ({ isTop }) => {
+const Navbar = () => {
 
   const [search, setSearch] = useState('');
   const [searchDiv, setSearchDiv] = useState(false);
@@ -25,15 +25,6 @@ const Navbar = ({ isTop }) => {
     return item.title.toLowerCase().includes(search.toLowerCase())
   }) : [];
 
-  const filterCategories = (products) => {
-    const filteredCategories = products.map((item) => {
-      return item.category;
-    });
-    const uniqueCategory = [...new Set(filteredCategories)];
-    return uniqueCategory;
-  }
-
-  const uniqueCategories = filterCategories(product);
   return (
     <>
       <header className='text-black bg-white transition-all py-2 duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
@@ -49,11 +40,11 @@ const Navbar = ({ isTop }) => {
             <div className='flex items-center w-full flex-row relative'>
               <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-md'/>
               <span className='flex md:absolute right-4 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
-              <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll'>
+              <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll shadow-md'>
                 {search.length > 0 ? (
                   filteredSearch.map((item) => {
                     return (
-                      <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className='w-full h-fit md:h-[60px] border border-slate-200 mx-2 rounded-md p-2 mb-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
+                      <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className=' w-full h-fit md:h-[60px] border border-slate-200 mx-2 rounded-md p-2 mb-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
                         <div className='h-full flex w-full flex-col md:flex-row text-xs items-center text-gray uppercase gap-x-2' >
                           <img className='md:h-full h-16 w-16 md:w-[40px]' src={item.image} />
                           <div className='flex flex-col w-full'>

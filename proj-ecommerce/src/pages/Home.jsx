@@ -11,14 +11,12 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div className='font-body container mx-auto px-4 md:px-0 '>
-        <Categories />
-        <Promotion />
-        <Productscollection />
-        <Banner />
-        <Emphasis/>
-        <Newsletter/>
-      </div>
+      <Categories />
+      <Promotion />
+      <Productscollection />
+      <Banner />
+      <Emphasis />
+      <Newsletter />
     </>
   )
 }

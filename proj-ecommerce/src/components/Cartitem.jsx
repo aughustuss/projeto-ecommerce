@@ -23,7 +23,7 @@ const Cartitem = ({ item }) => {
 
   return (
     <>
-      <div className='flex border-b border-neutral-200'>
+      <div className='flex border-b border-neutral-200 p-4'>
         <div className='w-full min-h-[150px] flex items-center gap-x-4'>        
             <Link to={`/product/${id}`}>
               <img className=' max-w-[80px]' src={image} alt={title} />

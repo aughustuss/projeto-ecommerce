@@ -10,7 +10,7 @@ const Newsletter = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <section className='w-full py-10 flex flex-col bg-white shadow-md h-[340px] max-h-max items-center rounded-md mb-10 text-gray'>
+                <section className='w-full py-10 flex flex-col bg-white shadow-md min-h-[340px] h-auto max-h-fit items-center rounded-md mb-10 text-gray'>
                     <div className='flex flex-col justify-evenly h-full w-5/6 items-center gap-y-4'>
                         <p className='text-5xl font-semibold text-primary font-title '>Assine nossa Newsletter!</p>
                         <div className='w-full'>

@@ -21,7 +21,7 @@ const CartpageItem = ({ item }) => {
 
     return (
         <>
-            <div className='border w-full px-4 h-[100px] flex items-center justify-between relative'>
+            <div className='border border-slate-200 rounded-md shadow-sm w-full p-4 h-[100px] flex items-center justify-between relative'>
                 <div className='items-center flex flex-row gap-x-2'>
                     <div>
                         <img className='min-w-[60px] max-w-[70px] max-h-[80px] h-[80px]' src={image} />
@@ -32,7 +32,7 @@ const CartpageItem = ({ item }) => {
                     </div>
                     
                 </div>
-                <div className='flex flex-row gap-x-3 border justify-between items-center h-[40px] md:h-[30px]'>
+                <div className='flex flex-row gap-x-3 border border-slate-200 justify-between items-center h-[40px] md:h-[30px]'>
                     <ColorButton onClick={() => increase(id)} className='h-full w-6'>+</ColorButton>
                     {amount}
                     <ColorButton onClick={() => decrease(id)} className=' h-full w-6' >-</ColorButton>

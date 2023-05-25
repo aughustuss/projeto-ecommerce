@@ -18,7 +18,7 @@ const Sidebar = () => {
       <ThemeProvider theme={theme}>
         <div className={`${isOpen ? 'right-0 shadow-2xl' : '-right-full'} text-gray w-full shadow-current bg-white fixed top-0 h-full md:w-1/3 xl:max-w-1/3 transition-all duration-300 z-50 px-4 lg:px-8 flex flex-col justify-between pb-2`}>
           <div className='flex items-center py-4 justify-between border-b border-b-neutral-200 w-full'>
-            <div className='font-semibold uppercase ' >
+            <div className='font-semibold text-sm ' >
               Carrinho de Compras ({itemAmount})
             </div>
             <div
@@ -36,7 +36,7 @@ const Sidebar = () => {
           </div>
           <div className='w-full'>
             <div>
-              <span className='font-semibold'>Total: <span className='text-secondary'>R$</span> {parseFloat(totalPrice).toFixed(2)}</span>
+              <span className='font-semibold text-sm'>Total: <span className='text-secondary'>R$</span> {parseFloat(totalPrice).toFixed(2)}</span>
             </div>
             <Link to='/cartpage' className='cursor-pointer py-4 flex flex-row w-full' >
               <ReusableButton variant='contained' classes=' w-full flex flex-row' >

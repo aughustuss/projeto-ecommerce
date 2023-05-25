@@ -15,10 +15,10 @@ const Category = () => {
   return (
     <>
       <section className='pb-4 md:pt-32 pt-36 container mx-auto' >
-        <div className='bg-quartiary flex p-4 w-full h-[800px] border-gray rounded-md shadow-md'>
-          <div className='w-full flex flex-col h-full'>
+        <div className='bg-quartiary flex p-6 w-full h-[900px] border-gray rounded-md shadow-md '>
+          <div className='w-full flex flex-col gap-y-4 h-full px-4'>
             <div className='uppercase text-3xl font-semibold py-6 bg-primary w-full text-white text-center rounded-md' >{cat}</div>
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 max-h-full overflow-x-hidden overflow-y-auto py-2'>
+            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-full h-full overflow-y-auto py-2'>
               {filteredProduct.map((item) => {
                 return(
                   <div key={item.id}>

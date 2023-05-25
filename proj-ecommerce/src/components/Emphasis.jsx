@@ -11,9 +11,7 @@ const Emphasis = () => {
     const emphasisProduct = product.length > 0 ? product.filter((product) => {
         return product.category.toLowerCase() === "women's clothing";
     }) : [];
-    
-    const category = emphasisProduct[0].category;
-    console.log(category);
+    const category = emphasisProduct[0].category
     return (
         <>
             <section className='w-full flex flex-col gap-y-4 py-10'>
