@@ -1,23 +1,24 @@
-export const Categories = [
+import CategoriesBg from '../assets/trianglify.png'
+export const CategoriesArray = [
     {
         id: 1,
         title: "Men's Clothing",
-        image: '',
+        image: CategoriesBg,
     },
     {
         id: 2,
-        title: "Woman's Clothing",
-        image: '',
+        title: "Women's Clothing",
+        image: CategoriesBg,
     },
     {
         id: 3,
         title: 'Jewelery',
-        image: '',
+        image: CategoriesBg,
     },
     {
         id: 4,
         title: 'Electronics',
-        image: '',
+        image: CategoriesBg,
     },
     
 ]

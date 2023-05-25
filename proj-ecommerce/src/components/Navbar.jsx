@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/Cart';
 import { ProductContext } from '../contexts/Product';
 import { MenuBarContext } from '../contexts/Menubar'
+import { CategoriesArray } from '../utils/datas'
 
 const Navbar = ({ isTop }) => {
 
@@ -41,7 +42,7 @@ const Navbar = ({ isTop }) => {
           <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
             <AiOutlineMenu size={20} />
           </div>
-          <Link to='/' className='text-xl md:text-2xl font-oswald font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-1' >
+          <Link to='/' className='text-xl md:text-2xl font-title font-bold flex pb-4 md:pb-0 flex-col justify-center items-center gap-y-1' >
             AD Shop For You
             <span className='uppercase text-[8px] md:text-xs border border-black w-full text-center tracking-[2px] md:tracking-[3px]'>E-commerce Store</span>
           </Link>
@@ -146,10 +147,10 @@ const Navbar = ({ isTop }) => {
               </div>
               {listOpen ? (
                 <ul className={`text-black bg-white capitalize absolute top-full w-full p-2 rounded-b-md`} >
-                  {uniqueCategories.map((item) => {
+                  {CategoriesArray.map((item) => {
                     return (
-                      <li key={item} className={`hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500 `}>
-                        <Link className='w-full h-full p-2 ' to={`/category/${item}`} key={item}> {item} </Link>
+                      <li key={item.id} className={`hover:text-white hover:bg-primary text-sm md:text-md flex transition duration-500 `}>
+                        <Link className='w-full h-full p-2 ' to={`/category/${item.title}`}> {item.title} </Link>
                       </li>
                     )
                   })}

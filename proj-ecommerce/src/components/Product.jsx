@@ -17,17 +17,16 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 const Product = ({ product }) => {
 
-  const { image, title, price, id, category, rating, rate, count } = product;
+  const { image, title, price, id, category, rating } = product;
   const { addToCart } = useContext(CartContext);
-  console.log(rate);
   return (
     <>
-      <div className='w-full sm:w-full bg-white flex flex-col justify-between shadow-md p-2 rounded-md border-slate-200 '>
-        <div className='min-h-64 h-auto mb-4 relative overflow-hidden group flex flex-col transition'>
+      <div className='w-full text-gray sm:w-full bg-white flex flex-col shadow-md p-2 rounded-md border-slate-200 group hover:scale-105 transition duration-200'>
+        <div className='min-h-[180px] h-auto mb-4 relative overflow-hidden group flex flex-col transition'>
           <div className='border-b pb-4 w-full h-full flex justify-center items-center'>
             <div className='w-48 mx-auto flex justify-center items-center p-4 h-44'>
               <img
-                className=' max-h-44 group-hover:scale-105 transition duration-300'
+                className=' max-h-44 transition duration-300'
                 src={image}
                 alt={title} />
             </div>
@@ -45,18 +44,24 @@ const Product = ({ product }) => {
           </div>
 
         </div>
-        <div className='flex flex-col justify-between'>
+        <div className='flex flex-col justify-between min-h-[120px]'>
           <div>
+            {product.category.toLowerCase() === 'electronics' && (
+              <p className='text-xs bg-secondary text-white w-fit px-2 rounded-md'>Promoção</p>
+            )}
             <Link to={`/product/${id}`} className='font-bold w-full h-full text-sm' >
               {title}
             </Link>
-            <div className='font-semibold' > <span className='text-secondary'>R$ </span> {price}</div>
-            <div className='capitalize text-xs text-gray'>{category}</div>
+            <div className='font-semibold flex flex-row items-center' >
+              <span className='text-secondary'>R$ </span> {price}
+              <span className='ml-1 text-xs pb-2 line-through '> {product.category === 'electronics' ? (price * 1.4).toFixed(2) : ''}</span>
+            </div>
+            <div className='capitalize text-xs '>{category}</div>
           </div>
-          <div className='w-full flex flex-row items-center gap-x-2'>
-            <Rating size='small' readOnly value={rating.rate} precision={0.1} />
-            <p className='text-gray text-[10px]'>{rating.count} Avaliações </p>
-          </div>
+        </div>
+        <div className='w-full flex flex-row items-center gap-x-2'>
+          <Rating size='small' readOnly value={rating.rate} precision={0.1} />
+          <p className=' text-[10px]'>{rating.count} Avaliações </p>
         </div>
       </div>
     </>
