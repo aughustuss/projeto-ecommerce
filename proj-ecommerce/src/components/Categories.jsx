@@ -7,7 +7,7 @@ import Slides from './Slides'
 const Categories = () => {
     return (
         <>
-            <section className='w-full flex flex-col gap-y-4'>
+            <section className='w-full flex flex-col gap-y-4 py-10'>
                 <div className='w-full flex flex-col '>
                     <p className='text-lg text-secondary font-semibold'>Veja mais</p>
                     <p className='text-5xl text-primary font-semibold font-title'>Navegue por nossas categorias</p>
