@@ -2,11 +2,13 @@ import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../contexts/Cart'
 import { ProductContext } from '../contexts/Product'
-import {ThemeProvider } from '@mui/material';
+import { Rating, ThemeProvider } from '@mui/material';
 import Product from '../components/Product';
 import ReusableButton from '../components/reusables/Button';
 import { theme } from '../utils/theme';
 import { HiShoppingCart } from 'react-icons/hi';
+import Slides from '../components/reusables/Slides';
+import { SwiperSlide } from 'swiper/react';
 
 const ProductDetails = () => {
 
@@ -28,7 +30,7 @@ const ProductDetails = () => {
     return item.category.toLowerCase() === productCategory.toLowerCase() && item.id !== parseInt(id);
   });
 
-  const { title, price, category, description, image } = singleProduct;
+  const { title, price, category, description, image, rating } = singleProduct;
 
   return (
 
@@ -40,7 +42,7 @@ const ProductDetails = () => {
               <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0 '>
                 <img className='max-w-[200px] max-h-[500px] lg:max-w-sm burn' src={image} alt={title} />
               </div>
-              <div className='flex flex-col p-2 gap-y-4 w-full md:flex-[0.3] items-start h-full justify-center bg-quartiary rounded-md shadow-md min-h-[500px]'>
+              <div className='flex flex-col p-2 gap-y-4 w-full md:flex-[0.3] items-start h-full justify-center bg-quartiary rounded-md shadow-md md:min-h-[500px]'>
                 <div className='flex flex-col items-start text-left'>
                   <h1 className='font-semibold mb-2 max-w-[450px] mx-auto self-start'>{title}</h1>
                 </div>
@@ -48,6 +50,10 @@ const ProductDetails = () => {
                   R${price}
                 </div>
                 <p className='capitalize text-xs' >{category}</p>
+                <div className='flex flex-row items-center gap-x-2'>
+                  <Rating value={rating.rate} precision={0.1} readOnly />
+                  <p className='text-xs'> <span className='text-sm'>{rating.rate}</span>  ({rating.count} Avaliações)</p>
+                </div>
                 <ReusableButton variant='contained' className='flex flex-row items-center gap-x-1 w-full' onClick={() => addToCart(singleProduct, singleProduct.id)}>
                   Adicionar ao carrinho <HiShoppingCart className='text-lg' />
                 </ReusableButton>
@@ -60,13 +66,16 @@ const ProductDetails = () => {
               <p className='text-lg text-secondary font-semibold'>Aproveite também</p>
               <p className='text-5xl text-primary font-semibold font-title'>Você pode gostar</p>
             </div>
-            <div className='gap-2 sm:gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mx-auto max-w-sm md:max-w-none md:mx-0'>
+            <Slides classes={'w-full'}>
               {filteredProducts.map((item) => {
                 return (
-                  <Product key={item.id} product={item} />
+                  <SwiperSlide key={item.id}>
+                    <Product product={item} />
+                  </SwiperSlide>
                 )
               })}
-            </div>
+            </Slides>
+
           </div>
         </section>
       </ThemeProvider>

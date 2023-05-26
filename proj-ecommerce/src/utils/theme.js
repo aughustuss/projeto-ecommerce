@@ -8,4 +8,14 @@ export const theme = createTheme({
             dark: '#0f3f69',
         },
     },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    minWidth: '0',
+                    borderRadius: '6px',
+                }
+            }
+        }
+    }
 });

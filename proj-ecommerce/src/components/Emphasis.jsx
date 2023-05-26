@@ -11,7 +11,7 @@ const Emphasis = () => {
     const emphasisProduct = product.length > 0 ? product.filter((product) => {
         return product.category.toLowerCase() === "women's clothing";
     }) : [];
-    const category = emphasisProduct[0].category
+    const category = emphasisProduct[0] !== undefined || null ? emphasisProduct[0].category : "womens's clothing"
     return (
         <>
             <section className='w-full flex flex-col gap-y-4 py-10'>
@@ -19,7 +19,7 @@ const Emphasis = () => {
                     <p className='text-lg text-secondary font-semibold'>Tudo para você</p>
                     <p className='text-5xl text-tertiary font-semibold font-title'>Moda feminina</p>
                 </div>
-                <Slides classes={'w-full'}>
+                <Slides classes={'w-full py-4'}>
                     {emphasisProduct.map((product) => {
                         return (
                             <SwiperSlide key={product.id}>

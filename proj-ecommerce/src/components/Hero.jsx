@@ -20,14 +20,14 @@ const Hero = () => {
       <Slider {...settings} className='overflow-hidden overflow-x-hidden font-body' >
       <section className='h-screen relative bg-quartiary'>
         <img src={BannerPrimavera} className='absolute z-0  object-cover h-full' />
-          <div className='w-full mx-auto flex flex-row h-full justify-around '>
-            <div className='flex h-full justify-center items-center sm:items-baseline'>
+          <div className='flex flex-row h-full justify-around '>
+            <div className='flex h-full justify-center items-center sm:items-baseline '>
               <div className='h-full flex justify-center flex-col font-semibold z-10'>
-                <div className='items-center flex flex-row uppercase text-primary'>
+                <div className='items-center flex flex-row uppercase text-primary mx-4'>
                   <div className='w-10 h-[2px] bg-primary mr-2 ' />LANÇAMENTOS DE
                 </div>
-                <div className='flex flex-col '>
-                  <div className='text-6xl md:text-7xl leading-none mb-4 flex flex-col uppercase text-tertiary' >
+                <div className='flex flex-col mx-4'>
+                  <div className='text-5xl md:text-7xl leading-none mb-4 flex flex-col uppercase text-tertiary' >
                     <span className='font-title'>PRIMAVERA</span>
                     <span className='text-xs py-2' >PARA</span>
                     <span className='font-bold font-oswald' >MULHERES</span>
@@ -44,12 +44,12 @@ const Hero = () => {
         <img src={BannerOferta} className='absolute object-cover h-full z-0' />
           <div className='w-full mx-auto flex flex-row-reverse h-full justify-around'>
             <div className='flex h-full justify-center items-center sm:items-baseline'>
-              <div className='h-full flex justify-center flex-col z-10'>
+              <div className='h-full flex justify-center flex-col z-10 mx-4'>
                 <div className='items-center flex flex-row uppercase font-semibold'>
                   <div className='w-10 h-[2px] bg-primary mr-2 ' />NOVIDADES
                 </div>
                 <div className='flex flex-col'>
-                  <div className='text-6xl md:text-7xl leading-none mb-4 flex flex-col uppercase text-white' >
+                  <div className='text-5xl md:text-7xl leading-none mb-4 flex flex-col uppercase text-white' >
                     <span className='font-title'>Todos os dias</span>
                     <span className='text-xs py-2' >Várias novas</span>
                     <span className='font-bold font-title' >Ofertas</span>

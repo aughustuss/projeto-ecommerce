@@ -20,7 +20,7 @@ const Newsletter = () => {
                                         <IoMdMail className='text-primary' />
                                     )
                                 }} />
-                                <ReusableButton size='small' variant='contained' endIcon={<RiSendPlaneFill />}>
+                                <ReusableButton size='small' variant='contained' classes='min-w-[200px]' endIcon={<RiSendPlaneFill />}>
                                     Enviar
                                 </ReusableButton>
                             </form>
