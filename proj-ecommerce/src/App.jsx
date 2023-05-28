@@ -34,7 +34,7 @@ const App = () => {
         <div className='font-body'>
           <Navbar isTop={isTop} />
           <MobileMenu />
-          <div className='container mx-auto px-8 md:px-0'>
+          <div className='container mx-auto px-4 md:px-0'>
             <Routes>
               <Route path='/' index element={<Home />} />
               <Route path='/product/:id' element={<ProductDetails />} />
