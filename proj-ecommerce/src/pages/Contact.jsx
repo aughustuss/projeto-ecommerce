@@ -22,10 +22,10 @@ const Contact = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <section className='w-full pb-6 md:pt-32 pt-36' >
-                    <div className='flex border border-slate-200 shadow-md rounded-md bg-white justify-center h-fit max-h-[800px] w-full p-4'>
+                <section className='w-full pb-6 md:pt-32 pt-20 min-h-screen' >
+                    <div className='flex justify-center h-fit max-h-[800px] w-full'>
                         <div className='flex flex-col w-full justify-center items-center '>
-                            <div className='uppercase text-3xl font-semibold py-6 rounded-md text-white bg-primary w-full text-center'>
+                            <div className='uppercase text-xl lg:text-3xl font-semibold py-2 mb-6 rounded-md text-white bg-primary w-full px-2'>
                                 Entre em contato
                             </div>
                             <form onSubmit={onSubmit} className='flex flex-col items-center h-full w-full md:w-1/2 py-2 gap-y-4 justify-between' action="">
