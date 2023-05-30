@@ -15,12 +15,12 @@ const Product = ({ product }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className='w-full text-gray sm:w-full bg-white flex flex-col shadow-md p-2 rounded-md border-slate-200 group hover:scale-105 transition duration-200'>
-          <div className='sm:min-h-[180px] h-auto mb-4 relative overflow-hidden group flex flex-col transition'>
-            <div className='border-b border-slate-200 pb-4 w-full h-full flex justify-center items-center'>
-              <div className='w-48 mx-auto flex justify-center items-center p-4 h-32 sm:h-44'>
+        <div className='w-full text-gray sm:w-full bg-white min-h-[280px] flex flex-col shadow-md p-2 rounded-md border-slate-200 group hover:scale-105 transition duration-200'>
+          <div className='sm:min-h-[180px] h-auto mb-2 relative overflow-hidden group flex flex-col transition'>
+            <div className='border-b border-slate-200 pb-2 w-full h-full flex justify-center items-center'>
+              <div className='w-48 mx-auto flex justify-center items-center px-4 h-32 sm:h-44'>
                 <img
-                  className='max-h-24 sm:max-h-44 transition duration-300'
+                  className='max-h-32 sm:max-h-44 transition duration-300'
                   src={image}
                   alt={title} />
               </div>
@@ -35,14 +35,14 @@ const Product = ({ product }) => {
             </div>
 
           </div>
-          <Link to={`/product/${id}`} >
-            <div className='flex flex-col justify-between min-h-[60px] sm:min-h-[120px]'>
+          <Link className='pt-0 mt-0' to={`/product/${id}`}>
+            <div className='flex flex-col justify-between min-h-[60px] md:min-h-[100px]'>
               <div>
                 {product.category.toLowerCase() === 'electronics' && (
                   <p className='text-xs bg-secondary text-white w-fit px-2 rounded-md'>Promoção</p>
                 )}
-                <p className='font-bold w-full h-full text-sm' >
-                  {isAboveSM ? `${(title.slice(0, 50))}...` : `${(title.slice(0, 20))}...`}
+                <p className='font-bold w-full h-full text-sm line-clamp-1 lg:line-clamp-2' >
+                  {title}
                 </p>
                 <div className='font-semibold flex flex-row items-center' >
                   <span className='text-secondary'>R$ </span> {price}

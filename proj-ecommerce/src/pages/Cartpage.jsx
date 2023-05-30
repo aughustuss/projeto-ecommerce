@@ -14,8 +14,8 @@ const Cartpage = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <section className='w-full pb-6 md:pt-32 pt-36 md:h-screen text-gray'>
-                    <div className='border border-slate-200 rounded-md shadow-md bg-white h-screen md:h-full flex flex-col justify-between px-4 lg:px-8 py-2' >
+                <section className='w-full pb-6 md:pt-32 pt-20 md:h-screen text-gray'>
+                    <div className='bg-white rounded-md shadow-md h-screen md:h-full flex flex-col justify-between p-2 lg:px-8' >
                         {cart.length === 0 ? (
                             <div className='flex items-center justify-center h-full w-full text-sm'>
                                 Seu carrinho ainda está vazio...

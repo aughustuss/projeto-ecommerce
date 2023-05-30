@@ -18,7 +18,7 @@ const Promotion = () => {
                     <p className='text-lg text-secondary font-semibold'>Ofertas da semana</p>
                     <p className='text-5xl text-tertiary font-semibold font-title'>Aproveite os super preços dos Eletrônicos</p>
                 </div>
-                <Slides classes={'w-full'}>
+                <Slides classes={'w-full py-4'}>
                     {promotionProduct.map((product) => {
                         return (
                             <SwiperSlide key={product.id}>
