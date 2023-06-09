@@ -24,7 +24,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const getSearchParams = () => {
-    navigate(`/search/${search}`);
+    return navigate(`/search/${search}`);
   }
 
   const filteredSearch = search.length > 0 ? product.filter(item => {
@@ -88,10 +88,12 @@ const Navbar = () => {
               {!searchDiv ? (
                 <HiOutlineSearch size={18} onClick={() => setSearchDiv(!searchDiv)} />
               ) : (
-                <div className='top-0 absolute bg-white h-full w-full left-0 z-20 flex justify-center'>
+                <div className='top-0 absolute bg-white h-[120px] w-full left-0 z-20 flex justify-center'>
                   <div className='w-full items-center justify-center h-full relative'>
                     <div className='w-5/6 mx-auto flex flex-row items-center justify-between h-full gap-x-4' >
-                      <input placeholder='Digite sua busca...' className='rounded-md py-2 w-full outline-none text-gray bg-slate-200' onChange={(e) => setSearch(e.target.value)} value={search} />
+                      <form onSubmit={getSearchParams} className='w-full'>
+                        <input placeholder='Digite sua busca...' className='pl-4 rounded-md py-2 w-full outline-none text-gray bg-slate-200' onChange={(e) => setSearch(e.target.value)} value={search} />
+                      </form>
                       <span><CgClose color='black' onClick={() => { setSearchDiv(!searchDiv); setSearch('') }} size={20} /></span>
                     </div>
                     <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll shadow-md'>
@@ -102,7 +104,7 @@ const Navbar = () => {
                               <div className='h-full flex w-full flex-col md:flex-row text-xs items-center text-neutral-600 uppercase gap-x-2' >
                                 <img className='md:h-full h-16 w-16 md:w-[40px]' src={item.image} />
                                 <div className='flex flex-col w-full'>
-                                  <div className='text-[8px] md:flex lg:text-[12px] '>
+                                  <div className='text-[8px] md:flex lg:text-[12px] text-center '>
                                     {item.title}
                                   </div>
                                   <div className='sm:text-[6px] md:flex md:text-[6px] lg:text-[10px] hidden'>
