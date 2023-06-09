@@ -34,8 +34,9 @@ const Slides = ({ children, classes }) => {
                 modules={[Navigation, Pagination]}
                 freeMode={true}
                 pagination={{
-                    el: ".custom-pagination",
+                    type: "bullets",
                     clickable: true,
+                    dynamicBullets: true,
                 }}
                 navigation={{
                     nextEl: nextRef.current,
