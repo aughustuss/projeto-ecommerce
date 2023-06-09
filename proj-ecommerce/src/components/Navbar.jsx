@@ -23,7 +23,8 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
-  const getSearchParams = () => {
+  const getSearchParams = (e) => {
+    e.preventDefault();
     return navigate(`/search/${search}`);
   }
 
@@ -44,10 +45,11 @@ const Navbar = () => {
           </Link>
           <div className='hidden md:flex flex-row gap-x-4 md:w-3/5'>
             <div className='flex items-center w-full flex-row relative'>
-              <form onSubmit={getSearchParams} className='w-full'>
-                <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-md' />
+              <form onSubmit={getSearchParams} className='w-full flex flex-row items-center'>
+                <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-l-md' />
+                <Link to={`/search/${search}`} className='bg-primary rounded-r-md text-white py-2 px-4 hover:bg-primary/90 transition duration-100'>IR</Link>
               </form>
-              <span className='flex md:absolute right-4 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
+              <span className='flex md:absolute right-14 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
               <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll shadow-md'>
                 {search.length > 0 ? (
                   filteredSearch.map((item) => {
