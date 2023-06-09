@@ -5,7 +5,7 @@ import { MdArrowForward, MdArrowBack } from 'react-icons/md'
 import { CgClose } from 'react-icons/cg'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../contexts/Cart';
 import { ProductContext } from '../contexts/Product';
 import { MenuBarContext } from '../contexts/Menubar'
@@ -21,31 +21,39 @@ const Navbar = () => {
   const { itemAmount } = useContext(CartContext);
   const { product } = useContext(ProductContext)
 
+  const navigate = useNavigate();
+
+  const getSearchParams = () => {
+    navigate(`/search/${search}`);
+  }
+
   const filteredSearch = search.length > 0 ? product.filter(item => {
-    return item.title.toLowerCase().includes(search.toLowerCase())
+    return item.title.toLowerCase().includes(search.toLowerCase());
   }) : [];
 
   return (
     <>
-      <header className='text-black bg-white transition-all lg:py-2 duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
-        <div className='mx-auto w-full md:w-5/6 flex flex-row justify-evenly items-center '>
+      <header className='text-black bg-white transition-all  duration-300 fixed shadow-md flex flex-col items-center w-full z-40 text-sm' >
+        <div className='mx-auto w-full md:w-5/6 flex flex-row justify-between items-center '>
           <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
             <AiOutlineMenu size={20} />
           </div>
-          <Link to='/' className='text-lg md:text-2xl font-title font-bold flex pb-2 md:pb-0 flex-col justify-center items-center gap-y-[2px]' >
+          <Link to='/' className='text-lg md:text-2xl font-title text-primary uppercase font-bold flex pb-2 md:pb-0 flex-col justify-center items-center gap-y-[2px]' >
             AD Shop For You
-            <span className='uppercase text-[8px] md:text-xs border border-black lg:py-1 py-0 w-full text-center tracking-[2px] md:tracking-[3px]'>E-commerce Store</span>
+            <span className='uppercase text-[8px] md:text-xs border rounded-sm border-black lg:py-1 py-0 w-full text-center tracking-[2px] '>E-commerce Store</span>
           </Link>
-          <div className='hidden md:flex flex-row gap-x-4 md:w-2/4'>
+          <div className='hidden md:flex flex-row gap-x-4 md:w-3/5'>
             <div className='flex items-center w-full flex-row relative'>
-              <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-md'/>
+              <form onSubmit={getSearchParams} className='w-full'>
+                <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-md' />
+              </form>
               <span className='flex md:absolute right-4 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
               <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll shadow-md'>
                 {search.length > 0 ? (
                   filteredSearch.map((item) => {
                     return (
-                      <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className=' w-full h-fit md:h-[60px] border border-slate-200 mx-2 rounded-md p-2 mb-2 cursor-pointer transition duration-300 group flex flex-row items-center justify-between'>
-                        <div className='h-full flex w-full flex-col md:flex-row text-xs items-center text-gray uppercase gap-x-2' >
+                      <Link key={item.id} onClick={() => setSearch('')} to={`product/${item.id}`} className=' w-full h-fit md:h-[60px] border border-slate-200 rounded-md p-2 mb-2 cursor-pointer group flex flex-row items-center justify-between'>
+                        <div className='h-full flex w-full px-2 flex-col md:flex-row text-xs items-center text-gray uppercase gap-x-2' >
                           <img className='md:h-full h-16 w-16 md:w-[40px]' src={item.image} />
                           <div className='flex flex-col w-full'>
                             <div className='text-[8px] md:flex lg:text-[12px] '>
@@ -127,7 +135,7 @@ const Navbar = () => {
         </div>
         <div className='hidden md:flex w-5/6 flex-row md:justify-center'>
           <div className='flex w-full md:w-1/2'>
-            <div  className=' transition duration-300  cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
+            <div className=' transition duration-300  cursor-pointer  w-full md:text-center relative group flex flex-row items-center md:justify-center justify-start'>
               <div onClick={() => setListOpen(!listOpen)} className='flex flex-row items-center w-full'>
                 <div className='flex-grow' >
                   Categorias</div>

@@ -9,6 +9,7 @@ import Cartpage from './pages/Cartpage'
 import Category from './pages/Category'
 import Contact from './pages/Contact'
 import MobileMenu from './components/Mobilemenu'
+import Searchedproduct from './pages/Searchedproduct'
 
 const App = () => {
   const [isTop, setIsTop] = useState(true);
@@ -34,16 +35,17 @@ const App = () => {
         <div className='font-body'>
           <Navbar isTop={isTop} />
           <MobileMenu />
-          <div className='container mx-auto px-2 md:px-0'>
-            <Routes>
-              <Route path='/' index element={<Home />} />
-              <Route path='/product/:id' element={<ProductDetails />} />
-              <Route path='/category/:cat' element={<Category />} />
-              <Route path='/cartpage' element={<Cartpage />} />
-              <Route path='/contact' element={<Contact />} />
-            </Routes>
-            <SideBar />
-          </div>
+
+          <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='/product/:id' element={<ProductDetails />} />
+            <Route path='/category/:cat' element={<Category />} />
+            <Route path='/search/:search' element={<Searchedproduct />} />
+            <Route path='/cartpage' element={<Cartpage />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
+          <SideBar />
+
           <Footer />
         </div>
       </BrowserRouter>

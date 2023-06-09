@@ -11,12 +11,14 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Categories />
-      <Promotion />
-      <Productscollection />
-      <Banner />
-      <Emphasis />
-      <Newsletter />
+      <div className='container mx-auto px-4 md:px-0'>
+        <Categories />
+        <Promotion />
+        <Productscollection />
+        <Banner />
+        <Emphasis />
+        <Newsletter />
+      </div>
     </>
   )
 }
