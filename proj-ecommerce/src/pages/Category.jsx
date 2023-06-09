@@ -14,7 +14,7 @@ const Category = () => {
 
   return (
     <>
-      <section className='pb-4 md:pt-32 pt-20 w-full container mx-auto px-4 md:px-0' >
+      <section className='pb-4 md:pt-32 pt-20 w-full container mx-auto px-2 md:px-0' >
         <div className='flex p-1 w-full h-[900px] border-gray rounded-md '>
           <div className='w-full flex flex-col gap-y-4 h-full '>
             <div className=' text-xl lg:text-3xl font-semibold py-2 bg-primary w-full text-white px-2 rounded-md flex flex-row gap-x-2 ' >

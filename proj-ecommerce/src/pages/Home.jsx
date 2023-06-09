@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div className='container mx-auto px-4 md:px-0'>
+      <div className='container mx-auto px-2 md:px-0'>
         <Categories />
         <Promotion />
         <Productscollection />
