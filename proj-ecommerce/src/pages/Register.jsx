@@ -6,14 +6,20 @@ import { theme } from '../utils/theme'
 import { Sexies, UFs }  from '../utils/datas'
 import { cpf } from 'cpf-cnpj-validator'
 import { IoMdArrowBack } from 'react-icons/io'
+import axios from 'axios'
 
 const Register = () => {
     const { register, getValues, formState: { errors }, handleSubmit, watch } = useForm();
     const validateCPF = (cpfnumber) => {
         return cpf.isValid(cpfnumber);
     }
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        try {
+            const res = await axios.post("https://cheap-chic-refactor-production.up.railway.app/new", data);
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <>
@@ -27,7 +33,6 @@ const Register = () => {
                             <div className='flex flex-row gap-2'>
                                 <TextField
                                     label='Nome'
-                                    
                                     type="text"
                                     className='w-full'
                                     size='small'
@@ -39,7 +44,6 @@ const Register = () => {
                                 />
                                 <TextField
                                     label='Sobrenome'
-                                    
                                     type="text"
                                     size='small'
                                     className='w-full'
@@ -52,7 +56,6 @@ const Register = () => {
                             </div>
                             <TextField
                                 label='Email'
-                                
                                 type="email"
                                 size='small'
                                 className='w-full'
@@ -65,7 +68,6 @@ const Register = () => {
                             <div className='flex flex-row gap-2'>
                                 <TextField
                                     label='CPF'
-                                    
                                     type="text"
                                     size='small'
                                     className='w-full'
@@ -78,7 +80,6 @@ const Register = () => {
                                 />
                                 <TextField
                                     label='Telefone'
-                                    
                                     type="tel"
                                     size='small'
                                     className='w-full'
@@ -93,7 +94,6 @@ const Register = () => {
                             <div className='flex flex-row gap-2'>
                                 <TextField
                                     label='CEP'
-                                    
                                     size='small'
                                     type="text"
                                     className='w-full'
@@ -106,7 +106,6 @@ const Register = () => {
                                 />
                                 <TextField
                                     label='Cidade'
-                                    
                                     type="text"
                                     size='small'
                                     className='w-full'
@@ -118,11 +117,10 @@ const Register = () => {
                             </div>
                             <TextField
                                 label='Endereço'
-                                
                                 type="text"
                                 className='w-full'
                                 size='small'
-                                {...register("adress", {
+                                {...register("address", {
                                     required: true,
                                 })}
                                 helperText={errors.adress && (errors.adress.type === 'required' && 'Digite seu endereço')}
@@ -130,7 +128,6 @@ const Register = () => {
                             <div className='flex flex-row gap-2'>
                                 <TextField
                                     label='Número (opcional)'
-                                    
                                     type="number"
                                     size='small'
                                     className='w-full'
@@ -140,7 +137,6 @@ const Register = () => {
                                 />
                                 <TextField
                                     label='UF'
-                                    
                                     select
                                     type="text"
                                     size='small'
@@ -158,7 +154,6 @@ const Register = () => {
                             <div className='flex flex-row gap-2'>
                                 <TextField
                                     label='Sexo'
-                                    
                                     select
                                     type="text"
                                     size='small'
