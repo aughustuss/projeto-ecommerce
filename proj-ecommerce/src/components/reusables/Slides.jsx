@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, FreeMode, Navigation } from 'swiper'
+import { Swiper} from 'swiper/react'
+import { Pagination, Navigation } from 'swiper'
 import "swiper/css"
 import "swiper/css/navigation";
 import "swiper/css/pagination";
