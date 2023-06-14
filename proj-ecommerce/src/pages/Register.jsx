@@ -15,7 +15,7 @@ const Register = () => {
     }
     const onSubmit = async (data) => {
         try {
-            const res = await axios.post("https://cheap-chic-refactor-production.up.railway.app/new", data);
+            const res = await axios.post("https://cheap-chic-refactor-production.up.railway.app/api/user/new", data);
             console.log(res);
         } catch (error) {
             console.log(error);
