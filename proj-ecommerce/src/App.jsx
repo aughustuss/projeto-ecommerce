@@ -10,6 +10,9 @@ import Category from './pages/Category'
 import Contact from './pages/Contact'
 import MobileMenu from './components/Mobilemenu'
 import Searchedproduct from './pages/Searchedproduct'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Profile from './pages/Profile'
 
 const App = () => {
   const [isTop, setIsTop] = useState(true);
@@ -33,9 +36,10 @@ const App = () => {
     <>
       <BrowserRouter>
         <div className='font-body'>
-          <Navbar isTop={isTop} />
+          {window.location.pathname !== '/login' && window.location.pathname !== '/register' && (
+            <Navbar isTop={isTop} />
+          )}
           <MobileMenu />
-
           <Routes>
             <Route path='/' index element={<Home />} />
             <Route path='/product/:id' element={<ProductDetails />} />
@@ -43,10 +47,14 @@ const App = () => {
             <Route path='/search/:search' element={<Searchedproduct />} />
             <Route path='/cartpage' element={<Cartpage />} />
             <Route path='/contact' element={<Contact />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/profile/:id' element={<Profile />} />
           </Routes>
           <SideBar />
-
-          <Footer />
+          {window.location.pathname !== '/login' && window.location.pathname !== '/register' && (
+            <Footer />
+          )}
         </div>
       </BrowserRouter>
     </>

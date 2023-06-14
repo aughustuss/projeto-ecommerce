@@ -14,7 +14,7 @@ const Productscollection = () => {
         <>
             <section className='py-10 w-full flex flex-col gap-y-4  justify-center'>
                 <div className='flex flex-col w-full h-full'>
-                    <p className='text-lg text-secondary font-semibold'>Encontre de tudo</p>
+                    <p className='text-lg text-tertiary font-semibold'>Encontre de tudo</p>
                     <p className='text-5xl text-primary font-semibold font-title'>Dê uma olhada em tudo que há de melhor</p>
                 </div>
                 {isAboveSM ? (

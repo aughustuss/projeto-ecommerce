@@ -15,8 +15,8 @@ const Promotion = () => {
         <>
             <section className='w-full flex flex-col gap-y-4'>
                 <div className='w-full flex flex-col items-end'>
-                    <p className='text-lg text-secondary font-semibold'>Ofertas da semana</p>
-                    <p className='text-5xl text-tertiary font-semibold font-title'>Aproveite os super preços dos Eletrônicos</p>
+                    <p className='text-lg text-primary font-semibold'>Adicionados recentemente</p>
+                    <p className='text-5xl text-tertiary font-semibold font-title'>Navegue pelas novidades e encontre o que deseja</p>
                 </div>
                 <Slides classes={'w-full py-4'}>
                     {promotionProduct.map((product) => {

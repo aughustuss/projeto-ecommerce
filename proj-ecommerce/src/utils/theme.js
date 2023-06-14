@@ -3,17 +3,24 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
     palette: {
         primary: {
-            main: "#19456B",
+            main: "#7E22CE",
             contrastText: '#fff',
-            dark: '#0f3f69',
+            dark: '#55059c',
         },
     },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    minWidth: '0',
-                    borderRadius: '6px',
+                    minWidth: '0px',
+                    borderRadius: '0px',
+                },
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    border: 'none',
                 }
             }
         }

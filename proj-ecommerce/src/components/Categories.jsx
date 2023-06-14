@@ -17,7 +17,7 @@ const Categories = () => {
                         return (
                             <Link to={`/category/${category.title}`} key={category.id} className='w-full hover:scale-105 transition duration-200'>
                                 <div className='flex flex-col justify-center items-center bg-quartiary rounded-md h-[160px]'>
-                                    <p className='text-4xl md:text-5xl text-quinary'><category.icon /></p>
+                                    <p className='text-4xl md:text-5xl text-primary'><category.icon /></p>
                                     <p>{category.title}</p>
                                 </div>
                             </Link>
