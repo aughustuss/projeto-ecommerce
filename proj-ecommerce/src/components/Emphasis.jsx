@@ -16,7 +16,7 @@ const Emphasis = () => {
         <>
             <section className='w-full flex flex-col gap-y-4 py-10'>
                 <div className='w-full flex flex-col'>
-                    <p className='text-lg text-secondary font-semibold'>Tudo para você</p>
+                    <p className='text-lg text-primary font-semibold'>Tudo para você</p>
                     <p className='text-5xl text-tertiary font-semibold font-title'>Moda feminina</p>
                 </div>
                 <Slides classes={'w-full py-4'}>

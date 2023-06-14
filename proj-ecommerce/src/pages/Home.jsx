@@ -7,6 +7,7 @@ import Promotion from '../components/Promotion';
 import Productscollection from '../components/Productscollection';
 import Emphasis from '../components/Emphasis';
 import Newsletter from '../components/Newsletter';
+import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const Home = () => {
         <Banner />
         <Emphasis />
         <Newsletter />
+        <Link to={`/profile/1`} >Perfil</Link>
       </div>
     </>
   )

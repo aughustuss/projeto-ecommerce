@@ -38,7 +38,7 @@ const ProductDetails = () => {
       <ThemeProvider theme={theme}>
         <section className='container mx-auto px-2 md:px-0 pb-6 md:pt-32 pt-32 h-fit flex flex-col items-center gap-y-2 text-gray font-body' >
           <div className='rounded-md bg-white p-2 shadow-md min-h-[600px] max-h-fit w-full flex flex-col justify-between ' >
-            <div className='flex flex-col lg:flex-row md:px-10 gap-4 items-center justify-center '>
+            <div className='flex flex-col lg:flex-row md:pl-10 gap-4 items-center justify-center '>
               <div className='flex flex-1 max-w-sm justify-center items-center mb-8 lg:mb-0 '>
                 <img className='h-full w-full' src={image} alt={title} />
               </div>

@@ -10,6 +10,7 @@ import { CartContext } from '../contexts/Cart';
 import { ProductContext } from '../contexts/Product';
 import { MenuBarContext } from '../contexts/Menubar'
 import { CategoriesArray } from '../utils/datas'
+import { RiSendPlaneFill } from 'react-icons/ri'
 
 const Navbar = () => {
 
@@ -40,14 +41,14 @@ const Navbar = () => {
             <AiOutlineMenu size={20} />
           </div>
           <Link to='/' className='text-lg md:text-2xl font-title text-primary uppercase font-bold flex pb-2 md:pb-0 flex-col justify-center items-center gap-y-[2px]' >
-            AD Shop For You
-            <span className='uppercase text-[8px] md:text-xs border rounded-sm border-black lg:py-1 py-0 w-full text-center tracking-[2px] '>E-commerce Store</span>
+            Cheap Chic
+            <span className='uppercase text-[8px] md:text-xs border rounded-sm border-black w-full text-center tracking-[2px] '>Trade Shop</span>
           </Link>
-          <div className='hidden md:flex flex-row gap-x-4 md:w-3/5'>
+          <div className='hidden md:flex flex-row gap-x-4 md:w-3/5 items-center'>
             <div className='flex items-center w-full flex-row relative'>
-              <form onSubmit={getSearchParams} className='w-full flex flex-row items-center'>
+              <form onSubmit={getSearchParams} className='w-full flex flex-row items-center bg-primary rounded-r-md rounded-l-xl'>
                 <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Digite sua busca...' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-l-md' />
-                <Link to={`/search/${search}`} className='bg-primary rounded-r-md text-white py-2 px-4 hover:bg-primary/90 transition duration-100'>IR</Link>
+                <Link to={`/search/${search}`} className='bg-primary rounded-r-md h-full px-4 text-white hover:bg-primary/90 transition duration-100'><RiSendPlaneFill size={20}/></Link>
               </form>
               <span className='flex md:absolute right-14 text-xl text-neutral-600'>{search.length > 0 ? <CgClose className='cursor-pointer' onClick={() => setSearch('')} /> : <HiOutlineSearch />}</span>
               <div className='bg-white z-40 w-full absolute top-full max-h-96 overflow-auto overflow-y-scroll shadow-md'>
@@ -80,10 +81,13 @@ const Navbar = () => {
             </div>
             <div
               onClick={() => setIsOpen(!isOpen)}
-              className='text-2xl cursor-pointer hidden md:flex relative rounded-full p-2 bg-primary text-white'>
+              className='text-2xl cursor-pointer hidden md:flex relative rounded-full p-2 bg-primary hover:bg-primary/90 transition duration-200 text-white'>
               <HiShoppingCart />
               <span className={`${itemAmount < 1 ? 'hidden' : 'absolute -top-2 -right-1 bg-red-600 rounded-full text-white flex items-center justify-center h-5 w-5 text-[10px]'} `}>{itemAmount}</span>
             </div>
+            <Link to={'/login'} className='bg-primary h-full py-2 px-4 text-white rounded-md hover:bg-primary/90 transition duration-200'>
+              Login
+            </Link>
           </div>
           <div className='flex flex-row gap-x-2 md:hidden items-center max-w-[60px] justify-center h-1/3 w-full'>
             <div className='cursor-pointer'>
