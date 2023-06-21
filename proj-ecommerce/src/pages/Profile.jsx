@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiOutlineHistory } from 'react-icons/ai'
 import { BsBagFill, BsFillBoxSeamFill } from 'react-icons/bs'
 import { MdAccountBox, MdArrowBack } from 'react-icons/md'
@@ -11,11 +11,15 @@ import { InputLabel, MenuItem, TextField } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import Categories from '../components/Categories'
 import { CategoriesArray } from '../utils/datas'
+import { ProductContext } from '../contexts/Product'
+import Product from '../components/Product'
+import Registeredproduct from '../components/reusables/Registeredproduct'
 const Profile = () => {
     const [registeringProd, setRegisteringProd] = useState(false);
     const { register, getValues, formState: { errors }, watch } = useForm();
     const productValue = watch("price");
     const percentageValue = productValue ? productValue * 0.1 : 0;
+    const {product} = useContext(ProductContext);
     return (
         <ThemeProvider theme={theme}>
             <main className='min-h-screen w-full z-0 font-body'>
@@ -48,16 +52,15 @@ const Profile = () => {
                         <TabPanel allowTransparency className='lg:pt-28 h-auto max-h-fit lg:max-h-[620px] mx-4 mb-4 lg:mb-0 lg:mx-0 '>
                             {!registeringProd ? (
                                 <div className='h-full  max-w-full flex flex-col gap-y-6 justify-between items-center'>
-                                    <div className='flex flex-col gap-y-6 self-start'>
-                                        <h1 className='text-xl'>Seus produtos cadastrados: </h1>
-                                        <div className='w-auto max-w-xl '>
-                                            map no produtos...
-                                            <div className='min-h-[160px] w-[260px] border border-slate-300 bg-white rounded-md '>
-
-                                            </div>
+                                    <div className='flex flex-col gap-y-6 self-start h-[400px] overflow-auto'>
+                                        <h1 className='text-3xl text-center font-title'>Seus produtos cadastrados </h1>
+                                        <div className='grid grid-cols-2 gap-[2px] lg:gap-2'>
+                                            {product.slice(0, 2).map((product) => (
+                                                <Registeredproduct product={product} />
+                                            ))}
                                         </div>
                                     </div>
-                                    <ReusableButton onClick={() => setRegisteringProd(true)} variant='contained' classes='w-[260px] self-start'>
+                                    <ReusableButton onClick={() => setRegisteringProd(true)} variant='contained' classes='w-[260px] lg:self-start self-center'>
                                         novo produto +
                                     </ReusableButton>
                                 </div>
