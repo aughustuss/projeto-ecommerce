@@ -9,9 +9,9 @@ const Banner = () => {
         <>
             <section>
                 {isAboveSM ? (
-                    <img src={BannerImg} className='h-full w-full rounded-md' />
+                    <div className='w-full h-[400px] bg-primary rounded-md'/>
                 ) : (
-                    <img src={BannerSM} className='h-full w-full rounded-md' />
+                    <div className='w-full h-[600px] bg-primary rounded-md' />
                 )}
             </section>
         </>

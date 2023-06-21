@@ -6,6 +6,8 @@ import { RiSendPlaneFill } from 'react-icons/ri'
 import ReusableIconButton from './reusables/Iconbutton'
 import { IoMdMail } from 'react-icons/io'
 import ReusableButton from './reusables/Button'
+import { MdArrowForward } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 const Newsletter = () => {
     return (
         <>
@@ -14,11 +16,11 @@ const Newsletter = () => {
                     <div className='flex flex-col justify-evenly h-full w-5/6 items-center gap-y-4'>
                         <p className='text-5xl font-semibold text-center text-primary font-title '>Assine nossa Newsletter!</p>
                         <div className='w-full'>
-                            <form className='flex flex-col sm:flex-row w-full gap-y-2 lg:bg-primary rounded-l-xl'>
-                                <input className='w-full text-sm bg-slate-200 h-full lg:rounded-l-md outline-none p-2' placeholder='Digite seu email...'/>
-                                <ReusableButton size='small' variant='contained' classes='min-w-[200px]' endIcon={<RiSendPlaneFill />}>
-                                    Enviar
-                                </ReusableButton>
+                            <form className='flex flex-col sm:flex-row w-full gap-y-2 '>
+                                <input placeholder='Digite seu e-mail' className='bg-slate-200 pl-2 py-2 hidden md:flex w-full h-full outline-none text-neutral-600 rounded-l-md' />
+                                <div className='bg-primary text-white rounded-r-md px-4 flex flex-col justify-center cursor-pointer hover:bg-primary/90 transition duration-100'>
+                                    <RiSendPlaneFill size={20} />
+                                </div>
                             </form>
                         </div>
                         <div className='w-full text-center'>

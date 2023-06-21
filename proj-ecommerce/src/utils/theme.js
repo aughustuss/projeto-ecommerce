@@ -13,7 +13,6 @@ export const theme = createTheme({
             styleOverrides: {
                 root: {
                     minWidth: '0px',
-                    borderRadius: '0px',
                 },
             },
         },
