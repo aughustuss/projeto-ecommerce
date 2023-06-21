@@ -9,7 +9,7 @@ const Registeredproduct = ({ product }) => {
     return (
         <>
             <div className='flex flex-col font-body max-w-[480px] min-h-[160px] justify-between bg-white rounded-md border border-slate-300 p-4 relative gap-y-4'>
-                <div className='flex flex-col lg:flex-row min-h-[110px] gap-4'>
+                <div className='flex flex-col lg:flex-row justify-between min-h-[110px] gap-4'>
                     <img src={product.image} className='h-full w-20 object-contain self-center' />
                     <div className='flex flex-col gap-y-2'>
                         <p className='text-sm'>{product.title}</p>
@@ -22,13 +22,15 @@ const Registeredproduct = ({ product }) => {
                     </div>
                 </div>
                 <div className='flex flex-col lg:flex-row items-start lg:items-center gap-x-10 self-start'>
-                    <div className='flex flex-row items-center gap-2'>
-                        <input onClick={() => setConfirmedReceive(true)} type="checkbox" />
-                        <label className='text-xs' htmlFor="">Confirmar Recebimento</label>
-                    </div>
+                
                     <div className='flex flex-row items-center gap-2'>
                         <input onClick={() => setConfirmedSend(true)} type="checkbox" />
                         <label className='text-xs' htmlFor="">Confirmar Envio</label>
+                    </div>
+
+                    <div className={`${!confirmedSend ? 'cursor-not-allowed text-gray' : ''} flex flex-row items-center gap-2`}>
+                        <input disabled={!confirmedSend} onClick={() => setConfirmedReceive(true)} type="checkbox" />
+                        <label className='text-xs' htmlFor="">Confirmar Recebimento</label>
                     </div>
                 </div>
                 <Snackbar open={confirmedSend} autoHideDuration={4000} onClose={() => setConfirmedSend(!confirmedSend)}>

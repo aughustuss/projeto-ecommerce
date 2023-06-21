@@ -9,17 +9,16 @@ import { ThemeProvider } from '@emotion/react'
 import { theme } from '../utils/theme'
 import { InputLabel, MenuItem, TextField } from '@mui/material'
 import { useForm } from 'react-hook-form'
-import Categories from '../components/Categories'
 import { CategoriesArray } from '../utils/datas'
 import { ProductContext } from '../contexts/Product'
-import Product from '../components/Product'
 import Registeredproduct from '../components/reusables/Registeredproduct'
+import Boughtproducts from '../components/reusables/Boughtproducts'
 const Profile = () => {
     const [registeringProd, setRegisteringProd] = useState(false);
     const { register, getValues, formState: { errors }, watch } = useForm();
     const productValue = watch("price");
     const percentageValue = productValue ? productValue * 0.1 : 0;
-    const {product} = useContext(ProductContext);
+    const { product } = useContext(ProductContext);
     return (
         <ThemeProvider theme={theme}>
             <main className='min-h-screen w-full z-0 font-body'>
@@ -46,9 +45,20 @@ const Profile = () => {
                         <TabPanel className='lg:pt-28 w-auto'>
                             <h1>Conta...</h1>
                         </TabPanel>
-                        <TabPanel className='lg:pt-28'>
-                            <h1>pedidos...</h1>
+
+                        <TabPanel className='lg:pt-28 h-auto max-h-fit lg:max-h-[620px] mx-4 mb-4 lg:mb-0 lg:mx-0 '>
+                            <div className='h-full  max-w-full flex flex-col gap-y-6 justify-between items-center'>
+                                <div className='flex flex-col gap-y-6 self-start h-[400px] overflow-auto'>
+                                    <h1 className='text-3xl text-center font-title'>Seus produtos pedidos</h1>
+                                    <div className='grid grid-cols-2 gap-[2px] lg:gap-2'>
+                                        {product.slice(2, 4).map((product) => (
+                                            <Boughtproducts product={product} />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel >
+
                         <TabPanel allowTransparency className='lg:pt-28 h-auto max-h-fit lg:max-h-[620px] mx-4 mb-4 lg:mb-0 lg:mx-0 '>
                             {!registeringProd ? (
                                 <div className='h-full  max-w-full flex flex-col gap-y-6 justify-between items-center'>
@@ -106,10 +116,10 @@ const Profile = () => {
                                                         InputProps={{
                                                             endAdornment: (
                                                                 <InputLabel
-                                                                shrink={percentageValue}
-                                                                htmlFor='percentage-value'
+                                                                    shrink={percentageValue}
+                                                                    htmlFor='percentage-value'
                                                                 >
-                                                                    Valor do Seguro      
+                                                                    Valor do Seguro
                                                                 </InputLabel>
                                                             )
                                                         }}
