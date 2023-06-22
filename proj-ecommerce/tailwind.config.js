@@ -7,9 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Poppins', 'sans-serif'],
+        body: ['Roboto', 'sans-serif'],
         title: ['Oswald', 'sans-serif'],
-        montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
         primary: "#19456B",

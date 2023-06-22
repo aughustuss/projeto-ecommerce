@@ -15,7 +15,7 @@ const Product = ({ product }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className='w-full text-gray sm:w-full bg-white min-h-[280px] flex flex-col shadow-md p-2 rounded-md border-slate-200 group hover:scale-105 transition duration-200'>
+        <div className='w-full text-gray sm:w-full border border-slate-300 bg-white min-h-[280px] flex flex-col shadow-md p-2 rounded-md group hover:scale-105 transition duration-200'>
           <div className='sm:min-h-[180px] h-auto mb-2 relative overflow-hidden group flex flex-col transition'>
             <div className='border-b border-slate-200 pb-2 w-full h-full flex justify-center items-center'>
               <div className='w-48 mx-auto flex justify-center items-center px-4 h-32 sm:h-44'>

@@ -22,10 +22,10 @@ const Contact = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <section className='w-full pb-6 md:pt-32 pt-20 min-h-screen container mx-auto px-2 md:px-0' >
+                <section className='w-full pb-6 md:pt-28 pt-20 min-h-screen container mx-auto px-2 md:px-0' >
                     <div className='flex justify-center h-fit max-h-[800px] w-full'>
                         <div className='flex flex-col w-full justify-center items-center '>
-                            <div className='uppercase text-xl lg:text-3xl font-semibold py-2 mb-6 rounded-md text-white bg-primary w-full px-2'>
+                            <div className='uppercase text-2xl lg:text-3xl font-semibold p-2 mb-6 rounded-md text-primary font-title text-center w-full'>
                                 Entre em contato
                             </div>
                             <form onSubmit={onSubmit} className='flex flex-col items-center h-full w-full md:w-1/2 py-2 gap-y-4 justify-between' action="">
@@ -64,7 +64,7 @@ const Contact = () => {
                                     />
                                 </div>
                                 <div className='w-full'>
-                                    <ReusableButton type='submit' endIcon={<RiSendPlaneFill/>} variant='contained' classes='w-full' >Enviar</ReusableButton>
+                                    <ReusableButton type='submit' variant='contained' classes='w-full' >Enviar</ReusableButton>
                                 </div>
                             </form>
                         </div>

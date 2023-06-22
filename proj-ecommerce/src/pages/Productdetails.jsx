@@ -36,13 +36,13 @@ const ProductDetails = () => {
 
     <>
       <ThemeProvider theme={theme}>
-        <section className='container mx-auto px-2 md:px-0 pb-6 md:pt-32 pt-32 h-fit flex flex-col items-center gap-y-2 text-gray font-body' >
+        <section className='container mx-auto px-2 md:px-0 pb-6 pt-20 md:pt-28 h-fit flex flex-col items-center gap-y-2 text-gray font-body' >
           <div className='rounded-md bg-white p-2 shadow-md min-h-[600px] max-h-fit w-full flex flex-col justify-between ' >
-            <div className='flex flex-col lg:flex-row md:px-10 gap-4 items-center justify-center '>
-              <div className='flex flex-1 max-w-sm justify-center items-center mb-8 lg:mb-0 '>
-                <img className='h-full w-full' src={image} alt={title} />
+            <div className='flex flex-col lg:flex-row md:pl-10 gap-4 items-center justify-between '>
+              <div className='flex flex-1 max-w-sm justify-center items-center mb-8 lg:mb-0 p-4'>
+                <img className='h-4/6 w-4/6 md:h-full md:w-full object-cover' src={image} alt={title} />
               </div>
-              <div className='flex flex-col p-2 gap-y-4 w-full flex-1 items-start h-full justify-center bg-quartiary rounded-md shadow-md md:min-h-[500px]'>
+              <div className='flex flex-col max-w-2xl p-2 gap-y-4 w-full flex-1 items-start h-full justify-center bg-quartiary rounded-md shadow-md md:min-h-[500px]'>
                 <div className='flex flex-col items-start text-left'>
                   <h1 className='font-semibold mb-2 max-w-[450px] mx-auto self-start'>{title}</h1>
                 </div>
@@ -55,7 +55,7 @@ const ProductDetails = () => {
                   <p className='text-xs'> <span className='text-sm'>{rating.rate}</span>  ({rating.count} Avaliações)</p>
                 </div>
                 <div className='mt-4 text-xs md:text-sm'>{description}</div>
-                <ReusableButton variant='contained' className='flex flex-row items-center gap-x-1 w-full' onClick={() => addToCart(singleProduct, singleProduct.id)}>
+                <ReusableButton variant='contained' className='flex flex-row self-center md:self-auto items-center gap-x-1 w-[320px]' onClick={() => addToCart(singleProduct, singleProduct.id)}>
                   Adicionar ao carrinho <HiShoppingCart className='text-lg' />
                 </ReusableButton>
               </div>

@@ -40,7 +40,7 @@ const Sidebar = () => {
             </div>
             <Link to='/cartpage' className='cursor-pointer py-4 flex flex-row w-full' >
               <ReusableButton variant='contained' classes=' w-full flex flex-row' >
-                <p className='uppercase text-sm'>Visualizar carrinho</p> <HiShoppingCart className='text-xl absolute right-1 lg:right-5' />
+                <p className='uppercase text-sm'>Visualizar carrinho</p> <HiShoppingCart className='text-xl absolute right-3 lg:right-5' />
               </ReusableButton>
             </Link>
             <div className='w-full'>
