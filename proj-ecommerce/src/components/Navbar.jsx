@@ -40,7 +40,7 @@ const Navbar = () => {
           <div onClick={() => setisMenuOpen(!isMenuOpen)} className='flex md:hidden p-0 m-0 cursor-pointer w-[40px] md:w-[60px] justify-center'>
             <AiOutlineMenu size={20} />
           </div>
-          <Link to='/' className='text-lg font-title text-primary uppercase font-bold flex flex-col justify-center items-center' >
+          <Link to='/' className='text-lg font-title text-primary uppercase font-bold flex flex-col justify-center items-center pb-2 md:pb-0' >
             AD Shop For You
             <span className='uppercase text-[9px] leading-6 bg-primary text-white rounded-sm w-full text-center tracking-[2px]'>E-commerce Store</span>
           </Link>
