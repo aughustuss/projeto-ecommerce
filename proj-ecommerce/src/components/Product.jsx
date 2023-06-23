@@ -1,17 +1,15 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { BsPlus, BsEyeFill } from 'react-icons/bs'
-import { Button, Rating, ThemeProvider, styled } from '@mui/material'
+import { Rating, ThemeProvider} from '@mui/material'
 import { CartContext } from '../contexts/Cart';
 import ReusableButton from './reusables/Button';
 import { theme } from '../utils/theme';
-import mediaQuery from '../utils/mediascreen';
 
 const Product = ({ product }) => {
 
   const { image, title, price, id, category, rating } = product;
   const { addToCart } = useContext(CartContext);
-  const isAboveSM = mediaQuery("(min-width: 640px)")
   return (
     <>
       <ThemeProvider theme={theme}>

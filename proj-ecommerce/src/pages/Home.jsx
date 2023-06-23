@@ -1,5 +1,4 @@
 import React from 'react'
-import Product from '../components/Product'
 import Hero from '../components/Hero';
 import Banner from '../components/Banner';
 import Categories from '../components/Categories';

@@ -1,11 +1,7 @@
 import { ThemeProvider } from '@mui/material'
 import React from 'react'
 import { theme } from '../utils/theme'
-import ReusableTextfield from './reusables/Textfield'
 import { RiSendPlaneFill } from 'react-icons/ri'
-import ReusableIconButton from './reusables/Iconbutton'
-import { IoMdMail } from 'react-icons/io'
-import ReusableButton from './reusables/Button'
 const Newsletter = () => {
     return (
         <>

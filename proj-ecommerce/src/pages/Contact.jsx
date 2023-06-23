@@ -4,7 +4,6 @@ import { ThemeProvider} from '@mui/material'
 import { theme } from '../utils/theme';
 import ReusableTextfield from '../components/reusables/Textfield';
 import ReusableButton from '../components/reusables/Button';
-import { RiSendPlaneFill } from 'react-icons/ri';
 
 
 const Contact = () => {

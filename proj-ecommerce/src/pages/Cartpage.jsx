@@ -8,7 +8,7 @@ import ReusableButton from '../components/reusables/Button';
 
 const Cartpage = () => {
 
-    const { cart, totalPrice, itemAmount } = useContext(CartContext);
+    const { cart, totalPrice } = useContext(CartContext);
 
     return (
         <>
