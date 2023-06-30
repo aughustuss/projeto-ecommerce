@@ -1,6 +1,6 @@
 import { Button, MenuItem, TextField, ThemeProvider } from '@mui/material'
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { get, useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { theme } from '../utils/theme' 
 import { Sexies, UFs }  from '../utils/datas'
@@ -14,8 +14,11 @@ const Register = () => {
         return cpf.isValid(cpfnumber);
     }
     const onSubmit = async (data) => {
+        console.log(data);
+        const {number} = getValues();
+        console.log(number);
         try {
-            const res = await axios.post("https://cheap-chic-refactor-production.up.railway.app/api/user/new", data);
+            const res = await axios.post("http://localhost:3000/user/create", data);
             console.log(res);
         } catch (error) {
             console.log(error);
@@ -47,7 +50,7 @@ const Register = () => {
                                     type="text"
                                     size='small'
                                     className='w-full'
-                                    {...register("lastname", {
+                                    {...register("lastName", {
                                         required: true,
                                         minLength: 3,
                                     })}
@@ -71,7 +74,7 @@ const Register = () => {
                                     type="text"
                                     size='small'
                                     className='w-full'
-                                    {...register("cpf", {
+                                    {...register("CPF", {
                                         required: true,
                                         validate: validateCPF,
                                     })}
@@ -83,7 +86,7 @@ const Register = () => {
                                     type="tel"
                                     size='small'
                                     className='w-full'
-                                    {...register("tel", {
+                                    {...register("phone", {
                                         required: true,
                                         minLength: 11,
                                     })}
@@ -97,7 +100,7 @@ const Register = () => {
                                     size='small'
                                     type="text"
                                     className='w-full'
-                                    {...register("cep", {
+                                    {...register("CEP", {
                                         required: true,
                                         minLength: 8,
                                     })}
@@ -141,7 +144,7 @@ const Register = () => {
                                     type="text"
                                     size='small'
                                     className='w-full'
-                                    {...register("uf", {
+                                    {...register("UF", {
                                         required: true,
                                     })}
                                     helperText={errors.uf && (errors.uf.type === 'required' && 'Selecione sua UF')}
@@ -189,7 +192,7 @@ const Register = () => {
                                 })}
                                 helperText={errors.password && (errors.password.type === 'required' ? 'Preencha a sua senha.' : 'Sua senha deve ter no mínimo 8 caractéres, 1 letra e 1 número.')}
                             />
-                            <TextField
+                            {/* <TextField
                                 label='Confirme sua senha'
                                 className='w-full'
                                 size='small'
@@ -203,7 +206,7 @@ const Register = () => {
                                     }
                                 })}
                                 helperText={errors.confirmpassword && (errors.confirmpassword.type === 'required' ? 'Preencha a sua senha.' : 'Senhas não conferem')}
-                            />
+                            /> */}
                             <Button type="submit" className='w-full bg-primary' variant='contained'>Registrar</Button>
                         </form>
                         <p className='text-xs self-end'>Já possui uma conta? <Link className='text-primary underline' to={'/login'}>Faça o login agora!</Link></p>

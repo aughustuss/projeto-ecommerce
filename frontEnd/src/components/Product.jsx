@@ -38,7 +38,7 @@ const Product = ({ product }) => {
           <Link className='pt-0 mt-0' to={`/product/${id}`}>
             <div className='flex flex-col justify-between min-h-[60px] md:min-h-[100px]'>
               <div>
-                {product.category.toLowerCase() === 'electronics' && (
+                {product.productType.toLowerCase() === 'electronics' && (
                   <p className='text-xs bg-secondary text-white w-fit px-2 rounded-md'>Promoção</p>
                 )}
                 <p className='font-bold w-full h-full text-sm line-clamp-1 lg:line-clamp-2' >
@@ -51,10 +51,11 @@ const Product = ({ product }) => {
                 <div className='capitalize text-xs '>{category}</div>
               </div>
             </div>
+{/*             
             <div className='w-full flex flex-col sm:flex-row items-start sm:items-center gap-x-2'>
               <Rating size='small' readOnly value={rating.rate} precision={0.1} />
               <p className=' text-[10px]'>{rating.count} Avaliações </p>
-            </div>
+            </div> */}
           </Link>
         </div>
       </ThemeProvider>

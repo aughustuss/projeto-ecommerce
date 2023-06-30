@@ -1,16 +1,26 @@
 import { InputAdornment, TextField, ThemeProvider } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { theme } from '../utils/theme'
 import ReusableButton from '../components/reusables/Button'
 import { Link } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { MdMail, MdPassword } from 'react-icons/md'
 import { IoMdArrowBack } from 'react-icons/io'
+import axios from 'axios'
 
 const Login = () => {
     const { register, formState: { errors }, reset, getValues, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
+    const [token, setToken] = useState("");
+    const onSubmit = async (data) => {
+        try {
+            const res = await axios.post("http://localhost:3000/user/login", data);
+            if(res.data.token){
+                localStorage.setItem("token:", res.data.token);
+            }
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <>

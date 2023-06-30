@@ -13,12 +13,28 @@ import { CategoriesArray } from '../utils/datas'
 import { ProductContext } from '../contexts/Product'
 import Registeredproduct from '../components/reusables/Registeredproduct'
 import Boughtproducts from '../components/reusables/Boughtproducts'
+import axios from 'axios'
 const Profile = () => {
     const [registeringProd, setRegisteringProd] = useState(false);
-    const { register, getValues, formState: { errors }, watch } = useForm();
+    const { register, getValues, formState: { errors }, watch, handleSubmit } = useForm();
     const productValue = watch("price");
     const percentageValue = productValue ? productValue * 0.1 : 0;
     const { product } = useContext(ProductContext);
+    const token = localStorage.getItem("token:");
+    const {price} = getValues();
+    const onSubmit = async (data) => {
+        try {
+            const res = await axios.post("http://localhost:3000/product/create",  {...data, price: parseFloat(price)},{
+                headers: {
+                    'Authorization': token
+                },
+            });
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
+        console.log(data);
+    }
     return (
         <ThemeProvider theme={theme}>
             <main className='min-h-screen w-full z-0 font-body'>
@@ -80,7 +96,7 @@ const Profile = () => {
                                     w-fit px-4 py-1 hover:bg-primary/90 transition duration-200 cursor-pointer self-start'>
                                         <MdArrowBack size={24} />
                                     </div>
-                                    <form action="" className='flex flex-col gap-y-10 w-[320px] sm:w-[420px] md:w-[520px] items-center lg:min-w-[900px] gap-2'>
+                                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-10 w-[320px] sm:w-[420px] md:w-[520px] items-center lg:min-w-[900px] gap-2'>
                                         <div className='flex flex-col lg:flex-row gap-2 w-full'>
                                             <div className='flex flex-col w-full gap-y-4'>
                                                 <div className='flex flex-col md:flex-row gap-4 md:gap-1 w-full'>
@@ -89,30 +105,29 @@ const Profile = () => {
                                                         size='small'
                                                         fullWidth
                                                         type='text'
+                                                        {...register("name", {
+                                                            required: true,
+                                                        })}
+
                                                     />
                                                     <TextField
                                                         label="Preço do produto"
                                                         size='small'
                                                         fullWidth
                                                         type='text'
-                                                    />
-                                                </div>
-                                                <div className='flex flex-col md:flex-row gap-4 md:gap-1 w-full'>
-                                                    <TextField
-                                                        label='Valor'
-                                                        size='small'
-                                                        type='number'
-                                                        fullWidth
                                                         {...register("price", {
                                                             required: true,
                                                         })}
                                                     />
+                                                </div>
+                                                <div className='flex flex-col md:flex-row gap-4 md:gap-1 w-full'>
+                                                    
                                                     <TextField
                                                         size='small'
                                                         disabled
                                                         variant='outlined'
                                                         className='cursor-not-allowed'
-                                                        value={percentageValue}
+                                                        value={percentageValue.toFixed(2)}
                                                         InputProps={{
                                                             endAdornment: (
                                                                 <InputLabel
@@ -129,6 +144,9 @@ const Profile = () => {
                                                     label='Categoria'
                                                     select
                                                     size='small'
+                                                    {...register("productType", {
+                                                        required: true,
+                                                    })}
                                                 >
                                                     {CategoriesArray.map((cat) => (
                                                         <MenuItem key={cat.id} value={cat.title}>
@@ -139,25 +157,38 @@ const Profile = () => {
                                                 <TextField
                                                     label="Tipo do tecido"
                                                     size='small'
+                                                    {...register("tissueType", {
+                                                        required: true,
+                                                    })}
+
                                                 />
                                             </div>
                                             <div className='flex flex-col w-full gap-y-4'>
                                                 <TextField
                                                     label="Medidas"
                                                     size='small'
+                                                    {...register("measure", {
+                                                        required: true,
+                                                    })}
                                                 />
                                                 <TextField
                                                     label="Marca"
                                                     size='small'
+                                                    {...register("brand", {
+                                                        required: true
+                                                    })}
                                                 />
                                                 <TextField
                                                     multiline
                                                     rows={6}
                                                     label='Descrição'
+                                                    {...register("productDescription", {
+                                                        required: true,
+                                                    })}
                                                 />
                                             </div>
                                         </div>
-                                        <ReusableButton variant='contained' classes='w-[240px] self-center'>Salvar</ReusableButton>
+                                        <ReusableButton type="submit" variant='contained' classes='w-[240px] self-center'>Salvar</ReusableButton>
                                     </form>
                                 </div>
                             )}

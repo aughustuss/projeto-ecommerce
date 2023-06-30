@@ -8,7 +8,7 @@ import Categorylink from './reusables/Categorylink';
 const Promotion = () => {
     const { product } = useContext(ProductContext);
     const promotionProduct = product.length > 0 ? product.filter((item) => {
-        return item.category.toLowerCase() === 'electronics';
+        return item.productType.toLowerCase() === 'electronics';
     }) : [];
     const category = promotionProduct[0] !== undefined || null ? promotionProduct[0].category : "electronics"
     return (

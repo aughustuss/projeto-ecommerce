@@ -9,7 +9,8 @@ const ProductProvider = ({ children }) => {
 
   const getProducts = async () => {
     try {
-      const res = await axios.get('https://fakestoreapi.com/products');
+      const res = await axios.get('http://localhost:3000/product/findMany');
+      console.log(res);
       setProduct(res.data);
     } catch (error) {
       console.log(error)

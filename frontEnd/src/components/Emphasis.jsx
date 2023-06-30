@@ -9,7 +9,7 @@ const Emphasis = () => {
     const { product } = useContext(ProductContext);
     
     const emphasisProduct = product.length > 0 ? product.filter((product) => {
-        return product.category.toLowerCase() === "women's clothing";
+        return product.productType.toLowerCase() === "women's clothing";
     }) : [];
     const category = emphasisProduct[0] !== undefined || null ? emphasisProduct[0].category : "womens's clothing"
     return (
