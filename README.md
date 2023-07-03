@@ -23,7 +23,7 @@ Site de venda e listagem de produtos. Nele é possível adicionar itens ao carri
 
 ## Instalação
 
-Instale proj-ecommerce
+Instale projeto-ecommerce
 
 ```bash
   npm i
@@ -35,6 +35,11 @@ Instale proj-ecommerce
 
 ```bash
   yarn add
+```
+Rode projeto-ecommerce
+
+```bash
+  npm run dev
 ```
     
 ## Link para o projeto 
